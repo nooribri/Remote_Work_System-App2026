@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>بوابة حِمى | منظومة مهمة العمل عن بُعد</title>
+  <title>بوابة حِمى | نظام العمل عن بُعد</title>
 
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#121c2d">
 
-  <!-- الخطوط والمكتبات -->
+  <!-- الخطوط والمكتبات الخارجية -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -49,8 +49,8 @@
     }
 
     .cpa-header-logo {
-      height: 48px;
-      max-width: 260px;
+      height: 40px;
+      max-width: 250px;
       object-fit: contain;
       filter: brightness(0) invert(1);
     }
@@ -75,8 +75,25 @@
       gap: 16px;
     }
 
+    .brand-logo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .country-header-text {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+      margin-bottom: 3px;
+    }
+
     .brand-divider {
-      height: 30px;
+      height: 42px;
       width: 1px;
       background: rgba(255, 255, 255, 0.25);
     }
@@ -133,35 +150,27 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 70px 20px 40px;
+      padding: 50px 20px;
       background: radial-gradient(circle at center, #27456e 0%, #121c2d 100%);
       min-height: calc(100vh - 72px);
     }
 
-    .vision-container {
-      text-align: center;
-      max-width: 650px;
-      margin-bottom: 24px;
-    }
-
-    .vision-title {
-      font-size: 30px;
+    .login-system-title {
+      font-family: 'Cairo', sans-serif;
+      font-size: 42px;
       font-weight: 900;
       color: var(--cpa-gold);
+      text-align: center;
       margin-bottom: 8px;
+      letter-spacing: -0.5px;
+      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
     }
 
-    .vision-subtext {
-      font-size: 14.5px;
-      color: #e4edf8;
-      line-height: 1.7;
-    }
-
-    .login-prompt {
-      font-size: 16.5px;
+    .login-sub-text {
+      font-size: 15px;
       font-weight: 700;
-      color: #ffffff;
-      margin-bottom: 20px;
+      color: #e4edf8;
+      margin-bottom: 24px;
       text-align: center;
     }
 
@@ -446,6 +455,13 @@
       box-shadow: 0 0 0 5px rgba(248, 193, 70, 0.28);
     }
 
+    .step-node.revision-needed .step-circle {
+      background: #dc3545;
+      border-color: #dc3545;
+      color: #ffffff;
+      box-shadow: 0 0 0 5px rgba(220, 53, 69, 0.28);
+    }
+
     .step-label {
       font-size: 12.5px;
       font-weight: 800;
@@ -467,24 +483,65 @@
     }
     .badge-pending { background-color: #fef3c7; color: #92400e; }
     .badge-completed { background-color: #d1fae5; color: #065f46; }
+    .badge-revision { background-color: #fee2e2; color: #991b1b; border: 1px solid #f87171; }
 
     .chart-box {
       position: relative;
       height: 280px;
       width: 100%;
     }
+
+    .filter-card {
+      background: #f8fafc;
+      border: 1px solid var(--cpa-border);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 22px;
+    }
+
+    @media print {
+      .top-header, .sidebar, .filter-card, .btn, #dynamicWorkflowStepper, #activeTaskBadge, .alert {
+        display: none !important;
+      }
+      .content-area {
+        padding: 0 !important;
+        overflow: visible !important;
+      }
+      .card-panel {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+      }
+      body {
+        background: #ffffff !important;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .login-system-title {
+        font-size: 30px;
+      }
+      .login-sub-text {
+        font-size: 13.5px;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <!-- شريط الرأس العلوي -->
+  <!-- شريط الرأس العلوي السيادي للمنظومة -->
   <header class="top-header">
     <div class="brand-section">
-      <img src="HEMA.png" alt="هيئة حماية المستهلك - HEMA" class="cpa-header-logo" onerror="this.style.display='none'">
+      <div class="brand-logo-container">
+        <span class="country-header-text" id="headerCountryTitle">سلطنة عُمان</span>
+        <img src="HEMA.png" alt="هيئة حماية المستهلك - HEMA" class="cpa-header-logo" onerror="this.style.display='none'">
+      </div>
+
       <div class="brand-divider"></div>
+
       <div>
-        <div class="fw-cairo fw-bold" style="font-size: 15.5px;" id="headerSystemTitle">نظام مهمة العمل عن بُعد</div>
-        <div style="font-size: 10.5px; color: #94a3b8;" id="headerSubTitle">منظومة حِمى للتحول الرقمي</div>
+        <div class="fw-cairo fw-bold" style="font-size: 15.5px;" id="headerSystemTitle">نظام العمل عن بُعد</div>
+        <div style="font-size: 10.5px; color: #94a3b8;" id="headerSubTitle">بوابة حِمى للتحول الرقمي</div>
       </div>
     </div>
 
@@ -503,7 +560,6 @@
         </select>
       </div>
 
-      <!-- أزرار التبديل الثنائي للغة -->
       <div class="lang-switch">
         <button class="lang-btn active" id="btnAr" onclick="setLanguage('ar')">AR</button>
         <span class="text-white opacity-50">|</span>
@@ -512,17 +568,11 @@
     </div>
   </header>
 
-  <!-- واجهة تسجيل الدخول -->
+  <!-- 1. واجهة تسجيل الدخول: تم إغلاق الحاوية بنجاح لمنع التداخل البنيوي -->
   <div id="loginSection" class="login-wrapper">
-    <div class="vision-container">
-      <div class="vision-title" id="txtVisionTitle">رؤية هيئة حماية المستهلك</div>
-      <div class="vision-subtext" id="txtVisionDesc">
-        صوت المستهلك الموثوق به لحماية مستدامة في سوق يسوده المنافسة والحوكمة الرشيدة
-      </div>
-    </div>
-
-    <div class="login-prompt" id="txtLoginPrompt">
-      أدخل أي اسم مستخدم أو رقم وظيفي للمتابعة (متاح للتجربة الحرة)
+    <div class="text-center mb-3">
+      <h1 class="login-system-title" id="txtLoginMainTitle">نظام العمل عن بُعد</h1>
+      <div class="login-sub-text" id="txtLoginPrompt">أدخل اسم المستخدم أو الرقم الوظيفي وكلمة المرور</div>
     </div>
 
     <div class="login-card">
@@ -547,7 +597,7 @@
     </div>
   </div>
 
-  <!-- لوحة التحكم -->
+  <!-- 2. لوحة التحكم: حاوية شقيقة معزولة ومستقلة تماماً على جذر المستند -->
   <div id="dashboardSection" class="dashboard-layout">
     
     <aside class="sidebar">
@@ -558,10 +608,9 @@
           </div>
           <div style="overflow: hidden;">
             <div class="fw-bold text-white text-truncate" style="font-size: 13.5px;" id="adUserName">---</div>
-            <div class="text-white-50" style="font-size: 11px;"><span id="lblEmpNum">الرقم:</span> <span id="adUserEmpId">---</span></div>
+            <div class="text-white-50" style="font-size: 11px;"><span id="lblEmpNum">الرقم الوظيفي:</span> <span id="adUserEmpId">---</span></div>
           </div>
         </div>
-        <!-- عنصر المسمى الوظيفي -->
         <div class="mb-2">
           <span class="user-job-badge" id="adUserJobTitle"><i class="fas fa-briefcase ms-1"></i> <span>---</span></span>
         </div>
@@ -574,7 +623,7 @@
       <nav class="sidebar-nav">
         <button class="nav-btn active" id="btnNavForm" onclick="switchMainView('formView')">
           <i class="fas fa-file-signature"></i>
-          <span id="navItemForm">نموذج مهمة العمل عن بُعد</span>
+          <span id="navItemForm">نموذج العمل عن بُعد</span>
         </button>
         <button class="nav-btn" id="btnNavDash" onclick="switchMainView('dashView')">
           <i class="fas fa-chart-pie"></i>
@@ -582,11 +631,11 @@
         </button>
         <button class="nav-btn" id="btnNavReports" onclick="switchMainView('reportsView')">
           <i class="fas fa-list-check"></i>
-          <span id="navItemReports">سجل المهام ومسار الاعتماد</span>
+          <span id="navItemReports">سجل الأعمال ومسار الاعتماد</span>
         </button>
         <button class="nav-btn" id="btnNavApprovals" onclick="switchMainView('approvalsView')">
-          <i class="fas fa-stamp"></i>
-          <span id="navItemApprovals">صندوق الاعتماد <span class="badge bg-danger rounded-pill ms-auto" id="pendingCountBadge">0</span></span>
+          <i class="fas fa-inbox"></i>
+          <span id="navItemApprovals">صندوق الأعمال <span class="badge bg-danger rounded-pill ms-auto" id="pendingCountBadge">0</span></span>
         </button>
         <button class="nav-btn" id="btnNavAdmin" onclick="switchMainView('adminView')">
           <i class="fas fa-sliders"></i>
@@ -615,6 +664,21 @@
           <span class="badge bg-success" id="ruleActiveBadge"><i class="fas fa-shield-alt ms-1"></i> الأمان مفعّل</span>
         </div>
 
+        <!-- تنبيه وضع تعديل المهمة المعادة -->
+        <div id="editingModeAlert" class="alert alert-danger border-0 shadow-sm rounded-3 mb-3" style="display: none;">
+          <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+            <div>
+              <i class="fas fa-triangle-exclamation fa-lg me-2"></i>
+              <strong>أنت الآن في وضع تعديل المهمة المعادة:</strong> <span id="editingTaskTitleText" class="fw-bold"></span>
+              <div class="mt-1 small">
+                <strong><i class="fas fa-comment-dots ms-1"></i> توجيهات المسؤول:</strong> 
+                <span id="editingTaskRemarkText" class="fw-bold text-dark bg-white px-2 py-1 rounded"></span>
+              </div>
+            </div>
+            <button type="button" class="btn btn-sm btn-outline-dark" onclick="cancelEditingMode()">إلغاء التعديل</button>
+          </div>
+        </div>
+
         <form id="remoteWorkForm" onsubmit="event.preventDefault(); submitWorkLog();">
           <div class="card-panel">
             <div class="section-title">
@@ -631,7 +695,7 @@
                 <input type="text" class="form-control ad-field" id="formEmpId" readonly>
               </div>
               <div class="col-md-3">
-                <label class="form-label small fw-bold" id="lblFormEmpDept">القسم</label>
+                <label class="form-label small fw-bold" id="lblFormEmpDept">القسم / الدائرة</label>
                 <input type="text" class="form-control ad-field" id="formEmpDept" readonly>
               </div>
               <div class="col-md-2">
@@ -648,14 +712,62 @@
           <div class="card-panel">
             <div class="section-title">
               <i class="fas fa-briefcase"></i>
-              <span id="sec2Title">ثانياً: تفاصيل المهمة</span>
+              <span id="sec2Title">ثانياً: تفاصيل العمل</span>
             </div>
             <div class="row g-3">
-              <div class="col-md-8">
-                <label class="form-label small fw-bold"><span id="lblTaskName">اسم المهمة</span> <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="taskTitle" placeholder="أدخل اسم المهمة المنجزة..." required>
-              </div>
+              
+              <!-- وصف العمل -->
               <div class="col-md-4">
+                <label for="taskCategory" class="form-label small fw-bold"><span id="lblTaskCat">وصف العمل</span> <span class="text-danger">*</span></label>
+                <select class="form-select" id="taskCategory" required>
+                  <option value="" selected disabled id="optSelectCat">اختر وصف العمل / نوع الإجراء...</option>
+                  <option value="خطاب">خطاب</option>
+                  <option value="مذكره">مذكره</option>
+                  <option value="محضر">محضر</option>
+                  <option value="تقرير">تقرير</option>
+                  <option value="كشف">كشف</option>
+                  <option value="استمارة">استمارة</option>
+                  <option value="خطة">خطة</option>
+                  <option value="احصائية">احصائية</option>
+                  <option value="شهادة">شهادة</option>
+                  <option value="قرار">قرار</option>
+                  <option value="عمل ميداني">عمل ميداني</option>
+                  <option value="إتصال هاتفي">إتصال هاتفي</option>
+                  <option value="حفظ">حفظ</option>
+                  <option value="سندات">سندات</option>
+                  <option value="اجتماع">اجتماع</option>
+                  <option value="متابعة">متابعة</option>
+                  <option value="مراجعة/بحث">مراجعة/بحث</option>
+                  <option value="ادخال بيانات بالحاسب آلي">ادخال بيانات بالحاسب آلي</option>
+                  <option value="استقبال/توديع ضيف">استقبال/توديع ضيف</option>
+                  <option value="تصميم/برنامج/بطاقة/استمارة/موقع/مطوية">تصميم/برنامج/بطاقة/استمارة/موقع/مطوية</option>
+                  <option value="دورة تدريبية/ندوية/ورشة">دورة تدريبية/ندوية/ورشة</option>
+                  <option value="مراجعة جهة خارج مقر العمل">مراجعة جهة خارج مقر العمل</option>
+                  <option value="صيانة أجهزة/برامج">صيانة أجهزة/برامج</option>
+                  <option value="كتابة شكوى">كتابة شكوى</option>
+                  <option value="تسجيل مواعيد">تسجيل مواعيد</option>
+                  <option value="أخرى">أخرى</option>
+                  <option value="اتصال للمساعدة">اتصال للمساعدة</option>
+                  <option value="تطبيق او تنفيذ">تطبيق او تنفيذ</option>
+                  <option value="استكشاف الأخطاء وإصلاحها">استكشاف الأخطاء وإصلاحها</option>
+                  <option value="البريد الألكتروني">البريد الألكتروني</option>
+                  <option value="إعداد مادة صحفية">إعداد مادة صحفية</option>
+                  <option value="فرز واعداد البريد">فرز واعداد البريد</option>
+                  <option value="استلام البريد">استلام البريد</option>
+                  <option value="تدريب المتدربين">تدريب المتدربين</option>
+                  <option value="تسجيل مستخدم جديد">تسجيل مستخدم جديد</option>
+                  <option value="إعادة تعيين رقم سري جديد">إعادة تعيين رقم سري جديد</option>
+                </select>
+              </div>
+
+              <!-- قائمة الدوائر والإدارات المعتمدة -->
+              <div class="col-md-5">
+                <label for="taskDepartment" class="form-label small fw-bold"><span id="lblTaskDeptSelect">الدائرة / الإدارة / القسم</span> <span class="text-danger">*</span></label>
+                <select class="form-select" id="taskDepartment" required></select>
+              </div>
+
+              <!-- الأولوية -->
+              <div class="col-md-3">
                 <label class="form-label small fw-bold"><span id="lblTaskPriority">الأولوية</span> <span class="text-danger">*</span></label>
                 <select class="form-select" id="taskPriority" required>
                   <option value="عالية" id="optHigh">عالية</option>
@@ -663,12 +775,15 @@
                   <option value="منخفضة" id="optLow">منخفضة</option>
                 </select>
               </div>
+
+              <!-- موضوع العمل -->
               <div class="col-md-12">
-                <label class="form-label small fw-bold"><span id="lblTaskDesc">وصف المهمة</span> <span class="text-danger">*</span></label>
-                <textarea class="form-control" id="taskDescription" rows="2" placeholder="اشرح نطاق العمل والمخرجات..." required></textarea>
+                <label class="form-label small fw-bold"><span id="lblTaskName">موضوع العمل</span> <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="taskTitle" placeholder="أدخل موضوع أو عنوان العمل المنجز..." required>
               </div>
+
               <div class="col-md-3">
-                <label class="form-label small fw-bold"><span id="lblTaskStart">تاريخ بدء المهمة</span> <span class="text-danger">*</span></label>
+                <label class="form-label small fw-bold"><span id="lblTaskStart">تاريخ بدء العمل</span> <span class="text-danger">*</span></label>
                 <input type="date" class="form-control" id="taskStartDate" required>
               </div>
               <div class="col-md-3">
@@ -676,13 +791,13 @@
                 <input type="date" class="form-control" id="taskEndDate" required>
               </div>
               <div class="col-md-3">
-                <label class="form-label small fw-bold"><span id="lblTaskStatus">حالة المهمة</span> <span class="text-danger">*</span></label>
+                <label class="form-label small fw-bold"><span id="lblTaskStatus">حالة العمل</span> <span class="text-danger">*</span></label>
                 <select class="form-select" id="taskStatus" required>
                   <option value="لم تبدأ" id="optStNotStarted">لم تبدأ</option>
                   <option value="قيد التنفيذ" id="optStInProgress">قيد التنفيذ</option>
-                  <option value="مكتملة" id="optStCompleted" selected>مكتملة</option>
-                  <option value="معلقة" id="optStPending">معلقة</option>
-                  <option value="متأخرة" id="optStDelayed">متأخرة</option>
+                  <option value="مكتملة" id="optStCompleted" selected>مكتمل</option>
+                  <option value="معلقة" id="optStPending">معلق</option>
+                  <option value="متأخرة" id="optStDelayed">متأخر</option>
                 </select>
               </div>
               <div class="col-md-3">
@@ -695,38 +810,35 @@
                   <option value="100%" selected>100%</option>
                 </select>
               </div>
-              <div class="col-md-12">
-                <label class="form-label small fw-bold" id="lblTaskOutputs">المخرجات أو المستندات المرفقة إن وجدت</label>
-                <input type="file" class="form-control" id="taskAttachment">
-              </div>
             </div>
           </div>
 
+          <!-- ثالثاً: التحديات -->
           <div class="card-panel">
             <div class="section-title">
               <i class="fas fa-triangle-exclamation text-warning"></i>
-              <span id="sec3Title">ثالثاً: المعوقات والتحديات</span>
+              <span id="sec3Title">ثالثاً: التحديات</span>
             </div>
             <div class="row g-3">
               <div class="col-md-12">
-                <label class="form-label small fw-bold d-block" id="lblHasObstacles">هل توجد معوقات؟</label>
+                <label class="form-label small fw-bold d-block" id="lblHasChallenges">هل واجهت تحديات أثناء إنجاز العمل؟</label>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="hasObstacles" id="obsNo" value="لا" checked onchange="toggleObstaclesField(false)">
-                  <label class="form-check-label fw-bold" for="obsNo" id="lblObsNo">لا</label>
+                  <input class="form-check-input" type="radio" name="hasChallenges" id="chNo" value="لا" checked onchange="toggleChallengesField(false)">
+                  <label class="form-check-label fw-bold" for="chNo" id="lblChNo">لا</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="hasObstacles" id="obsYes" value="نعم" onchange="toggleObstaclesField(true)">
-                  <label class="form-check-label fw-bold text-danger" for="obsYes" id="lblObsYes">نعم</label>
+                  <input class="form-check-input" type="radio" name="hasChallenges" id="chYes" value="نعم" onchange="toggleChallengesField(true)">
+                  <label class="form-check-label fw-bold text-danger" for="chYes" id="lblChYes">نعم</label>
                 </div>
               </div>
-              <div id="obstacleDetailsContainer" class="col-md-12" style="display: none;">
+              <div id="challengesDetailsContainer" class="col-md-12" style="display: none;">
                 <div class="p-3 bg-light rounded-3 border">
                   <div class="mb-2">
-                    <label class="form-label small fw-bold text-danger" id="lblObsDetails">إذا كانت الإجابة نعم، يرجى التوضيح:</label>
-                    <textarea class="form-control" id="obstacleExplanation" rows="2"></textarea>
+                    <label class="form-label small fw-bold text-danger" id="lblChDetails">طبيعة التحديات المرصودة:</label>
+                    <textarea class="form-control" id="challengeExplanation" rows="2"></textarea>
                   </div>
                   <div>
-                    <label class="form-label small fw-bold text-primary" id="lblSupportDetails">الدعم المطلوب:</label>
+                    <label class="form-label small fw-bold text-primary" id="lblSupportDetails">الدعم أو التسهيلات المطلوبة:</label>
                     <textarea class="form-control" id="requiredSupport" rows="2"></textarea>
                   </div>
                 </div>
@@ -736,20 +848,80 @@
 
           <div class="d-flex justify-content-end gap-3 mb-4">
             <button type="submit" class="btn btn-primary px-5 fw-bold" style="background: var(--cpa-navy); border-color: var(--cpa-navy);" id="btnSubmitForm">
-              <i class="fas fa-paper-plane ms-2"></i> إرسال المهمة للاعتماد
+              <i class="fas fa-paper-plane ms-2"></i> إرسال العمل للاعتماد
             </button>
           </div>
         </form>
       </section>
 
-      <!-- 2. لوحة المؤشرات -->
+      <!-- 2. لوحة المؤشرات البيانية -->
       <section id="dashView" class="view-panel" style="display: none;">
         <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
           <div>
-            <h4 class="fw-cairo fw-bold m-0 text-navy" id="dashRoleTitle">لوحة المؤشرات والتحليلات البيانية</h4>
-            <p class="text-muted small m-0" id="dashRoleSub">قراءة بصرية مباشرة لمستوى الإنجاز وحالات المهام عبر مختلف المستويات الإدارية</p>
+            <h4 class="fw-cairo fw-bold m-0 text-navy" id="dashRoleTitle">لوحة المؤشرات والقيادة</h4>
+            <p class="text-muted small m-0" id="dashRoleSub">متابعة بيانية تفاعلية لحالات الإنجاز ومسارات اعتماد العمل عن بُعد</p>
           </div>
           <span class="badge bg-light text-dark border p-2" id="badgeLiveAnalytics"><i class="fas fa-sync-alt text-primary ms-1"></i> بيانات تحليلية حية</span>
+        </div>
+
+        <div class="filter-card">
+          <div class="row g-2 align-items-end">
+            <div class="col-md-4">
+              <label class="form-label small fw-bold text-navy mb-1" id="lblDashFilterDept">
+                <i class="fas fa-filter ms-1"></i> تصفية حسب القسم / الدائرة:
+              </label>
+              <select id="dashDeptFilterSelect" class="form-select form-select-sm" onchange="applyDashboardFilter()"></select>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label small fw-bold text-navy mb-1">
+                <i class="fas fa-tags ms-1"></i> تصفية حسب وصف العمل:
+              </label>
+              <select id="dashCatFilterSelect" class="form-select form-select-sm" onchange="applyDashboardFilter()">
+                <option value="ALL">جميع الأوصاف والتصنيفات</option>
+                <option value="خطاب">خطاب</option>
+                <option value="مذكره">مذكره</option>
+                <option value="محضر">محضر</option>
+                <option value="تقرير">تقرير</option>
+                <option value="كشف">كشف</option>
+                <option value="استمارة">استمارة</option>
+                <option value="خطة">خطة</option>
+                <option value="احصائية">احصائية</option>
+                <option value="شهادة">شهادة</option>
+                <option value="قرار">قرار</option>
+                <option value="عمل ميداني">عمل ميداني</option>
+                <option value="إتصال هاتفي">إتصال هاتفي</option>
+                <option value="حفظ">حفظ</option>
+                <option value="سندات">سندات</option>
+                <option value="اجتماع">اجتماع</option>
+                <option value="متابعة">متابعة</option>
+                <option value="مراجعة/بحث">مراجعة/بحث</option>
+                <option value="ادخال بيانات بالحاسب آلي">ادخال بيانات بالحاسب آلي</option>
+                <option value="استقبال/توديع ضيف">استقبال/توديع ضيف</option>
+                <option value="تصميم/برنامج/بطاقة/استمارة/موقع/مطوية">تصميم/برنامج/بطاقة/استمارة/موقع/مطوية</option>
+                <option value="دورة تدريبية/ندوية/ورشة">دورة تدريبية/ندوية/ورشة</option>
+                <option value="مراجعة جهة خارج مقر العمل">مراجعة جهة خارج مقر العمل</option>
+                <option value="صيانة أجهزة/برامج">صيانة أجهزة/برامج</option>
+                <option value="كتابة شكوى">كتابة شكوى</option>
+                <option value="تسجيل مواعيد">تسجيل مواعيد</option>
+                <option value="أخرى">أخرى</option>
+                <option value="اتصال للمساعدة">اتصال للمساعدة</option>
+                <option value="تطبيق او تنفيذ">تطبيق او تنفيذ</option>
+                <option value="استكشاف الأخطاء وإصلاحها">استكشاف الأخطاء وإصلاحها</option>
+                <option value="البريد الألكتروني">البريد الألكتروني</option>
+                <option value="إعداد مادة صحفية">إعداد مادة صحفية</option>
+                <option value="فرز واعداد البريد">فرز واعداد البريد</option>
+                <option value="استلام البريد">استلام البريد</option>
+                <option value="تدريب المتدربين">تدريب المتدربين</option>
+                <option value="تسجيل مستخدم جديد">تسجيل مستخدم جديد</option>
+                <option value="إعادة تعيين رقم سري جديد">إعادة تعيين رقم سري جديد</option>
+              </select>
+            </div>
+            <div class="col-md-4 d-flex justify-content-end">
+              <button class="btn btn-sm btn-outline-secondary px-3" onclick="resetDashboardFilter()" id="btnResetDashFilter">
+                <i class="fas fa-rotate-left ms-1"></i> إعادة ضبط المؤشرات
+              </button>
+            </div>
+          </div>
         </div>
 
         <div class="kpi-grid" id="kpiContainer"></div>
@@ -759,7 +931,7 @@
             <div class="card-panel h-100">
               <div class="section-title">
                 <i class="fas fa-chart-column"></i>
-                <span id="chart1Title">معدل المهام المنجزة مقارنة بالمستهدف</span>
+                <span id="chart1Title">معدل الأعمال المنجزة مقارنة بالمستهدف</span>
               </div>
               <div class="chart-box">
                 <canvas id="performanceBarChart"></canvas>
@@ -781,27 +953,107 @@
         </div>
       </section>
 
-      <!-- 3. سجل التقارير ومسار الاعتماد -->
+      <!-- 3. سجل التقارير ومسار الاعتماد والفلترة المحدثة -->
       <section id="reportsView" class="view-panel" style="display: none;">
         <div class="card-panel">
           <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-2">
-            <h4 class="fw-bold text-navy m-0"><i class="fas fa-route text-warning ms-2"></i> <span id="reportHeaderTitle">مسار اعتماد المهمة الحالية</span></h4>
-            <span class="badge bg-primary px-3 py-2" id="activeTaskBadge">المهمة المحددة: #1</span>
+            <h4 class="fw-bold text-navy m-0"><i class="fas fa-route text-warning ms-2"></i> <span id="reportHeaderTitle">مسار اعتماد الأعمال الحالية</span></h4>
+            <span class="badge bg-primary px-3 py-2" id="activeTaskBadge">الأعمال المحددة: #1</span>
           </div>
           
           <div class="stepper-container" id="dynamicWorkflowStepper"></div>
 
-          <div class="table-responsive mt-4">
-            <table class="table table-hover align-middle">
+          <!-- شريط أدوات الفلترة والبحث المتقدم بالرقم الوظيفي واسم الموظف -->
+          <div class="filter-card mt-4">
+            <div class="row g-2 align-items-end">
+              
+              <!-- القسم / الدائرة -->
+              <div class="col-lg-3 col-md-6">
+                <label class="form-label small fw-bold text-navy mb-1" id="lblFilterDept">
+                  <i class="fas fa-sitemap ms-1"></i> القسم / الدائرة:
+                </label>
+                <select id="filterDeptSelect" class="form-select form-select-sm" onchange="onDeptFilterChange(this.value)"></select>
+              </div>
+
+              <!-- الرقم الوظيفي (مستقل) -->
+              <div class="col-lg-2 col-md-3">
+                <label class="form-label small fw-bold text-navy mb-1" id="lblFilterEmpId">
+                  <i class="fas fa-id-badge ms-1"></i> الرقم الوظيفي:
+                </label>
+                <input type="text" id="filterEmpId" class="form-control form-control-sm" placeholder="الرقم الوظيفي..." autocomplete="off">
+              </div>
+
+              <!-- اسم الموظف (مستقل) -->
+              <div class="col-lg-2 col-md-3">
+                <label class="form-label small fw-bold text-navy mb-1" id="lblFilterEmpName">
+                  <i class="fas fa-user ms-1"></i> اسم الموظف:
+                </label>
+                <input type="text" id="filterEmpName" class="form-control form-control-sm" placeholder="اسم الموظف..." autocomplete="off">
+              </div>
+
+              <!-- نطاق التقرير -->
+              <div class="col-lg-2 col-md-4">
+                <label class="form-label small fw-bold text-navy mb-1" id="lblFilterScope">
+                  <i class="fas fa-calendar-alt ms-1"></i> نطاق التقرير:
+                </label>
+                <select id="filterTimeScope" class="form-select form-select-sm" onchange="handleTimeScopeChange(this.value)">
+                  <option value="ALL" id="optScopeAll">الكل (بدون تحديد)</option>
+                  <option value="DAY" id="optScopeDay">يوم محدد</option>
+                  <option value="MONTH" id="optScopeMonth">شهر محدد</option>
+                  <option value="YEAR" id="optScopeYear">سنة كاملة</option>
+                </select>
+              </div>
+
+              <!-- الحقول الزمنية المتغيرة -->
+              <div class="col-lg-3 col-md-4 filter-input-box" id="boxFilterDay" style="display: none;">
+                <label class="form-label small fw-bold text-navy mb-1" id="lblFilterDayDate">حدد التاريخ:</label>
+                <input type="date" id="filterExactDate" class="form-control form-control-sm">
+              </div>
+
+              <div class="col-lg-3 col-md-4 filter-input-box" id="boxFilterMonth" style="display: none;">
+                <label class="form-label small fw-bold text-navy mb-1" id="lblFilterMonthDate">حدد الشهر والسنة:</label>
+                <input type="month" id="filterMonthDate" class="form-control form-control-sm">
+              </div>
+
+              <div class="col-lg-3 col-md-4 filter-input-box" id="boxFilterYear" style="display: none;">
+                <label class="form-label small fw-bold text-navy mb-1" id="lblFilterYearDate">حدد السنة:</label>
+                <select id="filterYearSelect" class="form-select form-select-sm"></select>
+              </div>
+
+              <!-- أزرار الإجراءات -->
+              <div class="col-lg-3 col-md-4 d-flex gap-2 ms-auto">
+                <button type="button" class="btn btn-primary btn-sm px-3 fw-bold flex-fill" onclick="applyReportsFilter()" style="background: var(--cpa-navy); border-color: var(--cpa-navy);" id="btnFilterSearch">
+                  <i class="fas fa-search ms-1"></i> بحث
+                </button>
+                <button type="button" class="btn btn-outline-secondary btn-sm px-3" onclick="resetReportsFilter()" title="إعادة تعيين" id="btnFilterReset">
+                  <i class="fas fa-rotate-left"></i>
+                </button>
+                <button type="button" class="btn btn-success btn-sm px-3 fw-bold" onclick="printFilteredReport()" title="طباعة التقرير" id="btnFilterPrint">
+                  <i class="fas fa-print ms-1"></i> طباعة
+                </button>
+              </div>
+            </div>
+
+            <div id="filterSummaryBar" class="mt-2 small text-muted d-flex justify-content-between align-items-center pt-2 border-top" style="display: none !important;">
+              <span><i class="fas fa-chart-simple ms-1 text-primary"></i> <span id="lblFilterResultsText">إجمالي نتائج التقرير:</span> <strong id="filterResultCount" class="text-primary">0</strong></span>
+            </div>
+          </div>
+
+          <div class="table-responsive mt-3">
+            <table class="table table-hover align-middle" id="reportsTasksTable">
               <thead class="table-light small">
                 <tr>
-                  <th id="thColTask">المهمة</th>
+                  <th id="thColTask">موضوع العمل</th>
+                  <th id="thColCat">وصف العمل</th>
+                  <th id="thColEmp">الموظف</th>
+                  <th id="thColEmpId">الرقم الوظيفي</th>
+                  <th id="thColDept">الدائرة / القسم /الإدارة</th>
                   <th id="thColDate">التاريخ</th>
                   <th id="thColPriority">الأولوية</th>
                   <th id="thColProgress">الإنجاز</th>
-                  <th id="thColObs">المعوقات</th>
-                  <th id="thColStatus">حالة مسار الاعتماد</th>
-                  <th style="width: 90px;" id="thColAction">عرض المسار</th>
+                  <th id="thColChallenges">التحديات</th>
+                  <th id="thColStatus">مسار الاعتماد</th>
+                  <th style="width: 110px;" id="thColAction">الإجراءات</th>
                 </tr>
               </thead>
               <tbody id="tasksTableBody" class="small"></tbody>
@@ -810,18 +1062,18 @@
         </div>
       </section>
 
-      <!-- 4. صندوق الاعتمادات -->
+      <!-- 4. صندوق المهام والاعتمادات -->
       <section id="approvalsView" class="view-panel" style="display: none;">
         <div class="card-panel">
           <div class="section-title">
-            <i class="fas fa-stamp"></i>
-            <span id="approvalsSecTitle">صندوق الاعتمادات واتخاذ القرار</span>
+            <i class="fas fa-inbox text-warning"></i>
+            <span id="approvalsSecTitle">صندوق الأعمال والقرارات</span>
           </div>
           <div id="approvalsListContainer"></div>
         </div>
       </section>
 
-      <!-- 5. لوحة مدير النظام -->
+      <!-- 5. لوحة مدير النظام: تطهير الوسم من النصوص المشوهة -->
       <section id="adminView" class="view-panel" style="display: none;">
         <div class="card-panel">
           <div class="section-title">
@@ -845,14 +1097,77 @@
   <script>
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzK5WqTFg1nwbcle7JzOGzOCWcKV0jO7QIM3-MUKvEOTcWRvzE1dv_aKLokxr2vQmnyRg/exec";
 
+    /* الدوائر والمديريات المعتمدة رسمياً بالهيئة */
+    const officialDepartmentsList = [
+      "دائرة الموارد البشرية",
+      "دائرة القانونية",
+      "دائرة الإعلام",
+      "دائرة الشؤون المالية",
+      "دائرة البيانات والمعلومات الاقتصادية",
+      "دائرة الشكاوي",
+      "مكتب رئيس الهيئة",
+      "مكتب الأمن",
+      "دائرة المجالس والتعاون الدولي",
+      "دائرة تقنية المعلومات",
+      "دائرة الوثائق",
+      "دائرة خدمات المراجعين",
+      "ضمان الجودة",
+      "نائب الرئيس للشؤون الإدارية والمالية",
+      "مكتب مدير عام المديرية العامة للشؤون الإدارية والمالية",
+      "دائرة التدريب والتأهيل",
+      "دائرة الشؤون الادارية",
+      "نائب الرئيس لخدمات المستهلكين ومراقبة الأسواق",
+      "مكتب مدير عام المديرية العامة لخدمات المستهلكين ومراقبة الاسواق",
+      "دائرة مكافحة الغش التجاري",
+      "دائرة تنظيم ومراقبة الأسواق",
+      "دائرة المنافسة ومنع الاحتكار",
+      "مكتب مدير عام المديرية العامة للدراسات والتطوير",
+      "دائرة الدراسات وبحوث السوق",
+      "دائرة التخطيط والتنظيم",
+      "المستشارون والخبراء",
+      "دائرة العلاقات العامة",
+      "دائرة التدقيق الداخلي",
+      "المديرية العامة لحماية المستهلك بمحافظة شمال الباطنة بصحار",
+      "مركز المنافسة ومنع الإحتكار",
+      "دائرة سياسة المنافسة والبيانات",
+      "دائرة منع الممارسات الإحتكارية",
+      "دائرة تلقي ومتابعة البلاغات",
+      "ادارة حماية المستهلك محافظة جنوب الباطنة بركاء",
+      "ادارة حماية المستهلك محافظة جنوب الباطنة بالرستاق",
+      "ادارة حماية المستهلك محافظة مسندم خصب",
+      "ادارة حماية المستهلك محافظة مسندم دبا",
+      "ادارة حماية المستهلك محافظة الداخلية بنزوى",
+      "ادارة حماية المستهلك محافظة الظاهرة بعبري",
+      "ادارة حماية المستهلك محافظة البريمي",
+      "ادارة حماية المستهلك محافظة شمال الشرقية بصور",
+      "ادارة حماية المستهلك جنوب الشرقية محافظة ابراء",
+      "ادارة حماية المستهلك محافظة الوسطى بهيماء",
+      "ادارة حماية المستهلك محافظة ظفار بصلالة",
+      "ادارة حماية المستهلك محافظة ظفار بالمزيونة",
+      "مكتب مصيرة",
+      "دائرة خدمات المستهلكين ومراقبة الاسواق-بصحار",
+      "دائرة الدراسات والتطوير-بصحار",
+      "دائرة الشؤون الإدارية والمالية-بصحار",
+      "دائرة الافتراضية",
+      "دائرة الاستدعاءات والتحذيرات",
+      "دائرة الابتكار و التطوير",
+      "تقييم العمل الميداني في الأسواق",
+      "قسم التنظيم ومراقبة الاسواق-صحار",
+      "دائرة الشؤون الإدارية والمالية-بظفار",
+      "دائرة الدراسات والتطوير-ظفار",
+      "دائرة خدمات المستهلكين ومراقبة الأسواق-ظفار",
+      "مكتب حماية المستهلك بولاية ثمريت",
+      "مكتب حماية المستهلك بولاية مرباط"
+    ];
+
     const employeesDB = {
       "376": { 
         name: "نورة بنت محمد الهنائي", 
         nameEn: "Noura Mohammed Al Hinai",
         empId: "376", 
-        dept: "قسم تقنية المعلومات", 
-        deptEn: "Information Technology Section",
-        manager: "إدارة حماية المستهلك بمحافظة الظاهرة", 
+        dept: "دائرة تقنية المعلومات", 
+        deptEn: "Information Technology Department",
+        manager: "ادارة حماية المستهلك محافظة الظاهرة بعبري", 
         managerEn: "Director of Consumer Protection Dept - Ad Dhahirah",
         role: "employee", 
         title: "أخصائية حاسب آلي ثان",
@@ -862,9 +1177,9 @@
         name: "علي المعمري", 
         nameEn: "Ali Al Maamari",
         empId: "201", 
-        dept: "قسم الدراسات والتطوير", 
-        deptEn: "Studies & Development Section",
-        manager: "مدير إدارة حماية المستهلك بمحافظة الظاهرة", 
+        dept: "دائرة الدراسات وبحوث السوق", 
+        deptEn: "Market Studies & Research Dept",
+        manager: "ادارة حماية المستهلك محافظة الظاهرة بعبري", 
         managerEn: "Director of Consumer Protection Dept - Ad Dhahirah",
         role: "dept_head", 
         title: "رئيس قسم الدراسات والتطوير",
@@ -874,7 +1189,7 @@
         name: "سلطان الجابري", 
         nameEn: "Sultan Al Jabri",
         empId: "105", 
-        dept: "إدارة حماية المستهلك بمحافظة الظاهرة", 
+        dept: "ادارة حماية المستهلك محافظة الظاهرة بعبري", 
         deptEn: "Consumer Protection Dept - Ad Dhahirah",
         manager: "المدير العام للمحافظات", 
         managerEn: "Director General for Governorates",
@@ -898,7 +1213,7 @@
         name: "سعادة رئيس الهيئة المحترم", 
         nameEn: "H.E. Chairman of CPA",
         empId: "001", 
-        dept: "رئاسة الهيئة", 
+        dept: "مكتب رئيس الهيئة", 
         deptEn: "Executive Office",
         manager: "---", 
         managerEn: "---",
@@ -921,8 +1236,9 @@
     };
 
     let tasksData = [
-      { id: "TASK-101", title: "إعداد ونشر استبيان رصد أسعار السلع الميداني", empName: "نورة بنت محمد الهنائي", date: "2026-09-16", priority: "عالية", progress: "100%", hasObs: "لا", stage: 2 },
-      { id: "TASK-102", title: "متابعة وإدخال بيانات شكاوى المستهلكين بالنظام", empName: "نورة بنت محمد الهنائي", date: "2026-09-16", priority: "منخفضة", progress: "100%", hasObs: "لا", stage: 1 }
+      { id: "TASK-101", title: "استبيان رصد أسعار السلع الميداني", category: "احصائية", empName: "نورة بنت محمد الهنائي", empId: "376", dept: "دائرة تقنية المعلومات", deptEn: "Information Technology Department", date: "2026-09-16", priority: "عالية", progress: "100%", hasChallenges: "لا", challengeDesc: "", supportDesc: "", stage: 2, lastRemark: "" },
+      { id: "TASK-102", title: "متابعة وإدخال شكاوى المستهلكين", category: "ادخال بيانات بالحاسب آلي", empName: "نورة بنت محمد الهنائي", empId: "376", dept: "دائرة الشكاوي", deptEn: "Complaints Department", date: "2026-09-16", priority: "منخفضة", progress: "100%", hasChallenges: "لا", challengeDesc: "", supportDesc: "", stage: 1, lastRemark: "" },
+      { id: "TASK-103", title: "دراسة مقارنة لأسعار المواد الاستهلاكية", category: "تقرير", empName: "علي المعمري", empId: "201", dept: "دائرة الدراسات وبحوث السوق", deptEn: "Market Studies & Research Dept", date: "2026-08-10", priority: "متوسطة", progress: "100%", hasChallenges: "لا", challengeDesc: "", supportDesc: "", stage: 4, lastRemark: "معتمد رسمياً وقيد بالدوام" }
     ];
 
     let selectedTaskId = "TASK-101";
@@ -931,114 +1247,142 @@
     let currentLang = 'ar';
     let barChartInstance = null;
     let doughnutChartInstance = null;
+    let editingTaskId = null;
 
     const i18n = {
       ar: {
-        pageTitle: "بوابة حِمى | منظومة مهام العمل عن بُعد",
-        sysTitle: "نظام مهمة عمل عن بُعد",
+        pageTitle: "بوابة حِمى | نظام العمل عن بُعد",
+        countryTitle: "سلطنة عُمان",
+        sysTitle: "نظام العمل عن بُعد",
         sysSub: "منظومة حِمى للتحول الرقمي",
-        visionTitle: "رؤية هيئة حماية المستهلك",
-        visionDesc: "صوت المستهلك الموثوق به لحماية مستدامة في سوق يسوده المنافسة والحوكمة الرشيدة",
-        loginPrompt: "أدخل أي اسم مستخدم أو رقم وظيفي للمتابعة (متاح للتجربة الحرة)",
+        loginPrompt: "أدخل اسم المستخدم أو الرقم الوظيفي وكلمة المرور",
         userInputPlaceholder: "اسم المستخدم أو الرقم الوظيفي",
         passInputPlaceholder: "كلمة المرور",
         rememberMe: "تذكر كلمة المرور",
         forgotPassword: "نسيت كلمة المرور",
         signIn: "تسجيل الدخول",
         roleLabel: "الصلاحية:",
-        empNumLabel: "الرقم:",
+        empNumLabel: "الرقم الوظيفي:",
         defaultJobTitle: "موظف",
-        navForm: "استمارة العمل عن بُعد",
+        navForm: "نموذج العمل عن بُعد",
         navDash: "لوحة المؤشرات والقيادة",
-        navReports: "سجل المهام ومسار الاعتماد",
-        navApprovals: "صندوق الاعتماد",
+        navReports: "سجل الأعمال ومسار الاعتماد",
+        navApprovalsEmp: "صندوق الأعمال المعادة",
+        navApprovalsLead: "صندوق الأعمال",
         navAdmin: "إعدادات مدير النظام",
         navLogout: "تسجيل الخروج",
         sec1Title: "أولاً: معلومات الموظف (من AD)",
         lblEmpName: "اسم الموظف",
         lblEmpId: "الرقم الوظيفي",
-        lblEmpDept: "القسم",
+        lblEmpDept: "القسم / الدائرة",
         lblEmpManager: "المسؤول المباشر",
         lblFormDate: "التاريخ",
-        sec2Title: "ثانياً: تفاصيل المهمة (قائمة)",
-        lblTaskName: "اسم المهمة",
-        taskTitlePlaceholder: "أدخل اسم المهمة المنجزة...",
-        lblTaskPriority: "الأولوية (قائمة)",
+        sec2Title: "ثانياً: تفاصيل العمل",
+        lblTaskCat: "وصف العمل",
+        optSelectCat: "اختر وصف العمل / نوع الإجراء...",
+        lblTaskDeptSelect: "الدائرة / الإدارة / القسم",
+        optSelectDept: "اختر الدائرة أو الإدارة المعنية...",
+        lblTaskName: "موضوع العمل",
+        taskTitlePlaceholder: "أدخل موضوع أو عنوان العمل المنجز...",
+        lblTaskPriority: "الأولوية",
         optHigh: "عالية",
         optMed: "متوسطة",
         optLow: "منخفضة",
-        lblTaskDesc: "وصف المهمة",
-        taskDescPlaceholder: "اشرح نطاق العمل والمخرجات...",
-        lblTaskStart: "تاريخ بدء المهمة",
+        lblTaskStart: "تاريخ بدء العمل",
         lblTaskEnd: "تاريخ الإنتهاء",
-        lblTaskStatus: "حالة المهمة (قائمة)",
+        lblTaskStatus: "حالة العمل",
         optStNotStarted: "لم تبدأ",
         optStInProgress: "قيد التنفيذ",
-        optStCompleted: "مكتملة",
-        optStPending: "معلقة",
-        optStDelayed: "متأخرة",
-        lblTaskProgress: "نسبة الإنجاز (قائمة)",
-        lblTaskOutputs: "المخرجات أو المستندات المرفقة إن وجدت",
-        sec3Title: "ثالثاً: المعوقات والتحديات",
-        lblHasObstacles: "هل توجد معوقات؟",
-        lblObsNo: "لا",
-        lblObsYes: "نعم",
-        lblObsDetails: "إذا كانت الإجابة نعم، يرجى التوضيح:",
-        lblSupportDetails: "الدعم المطلوب:",
-        btnSubmit: "إرسال المهمة للاعتماد",
-        dashTitle: "لوحة المؤشرات والتحليلات البيانية",
-        dashSub: "قراءة بصرية مباشرة لمستوى الإنجاز وحالات المهام عبر مختلف المستويات الإدارية",
+        optStCompleted: "مكتمل",
+        optStPending: "معلق",
+        optStDelayed: "متأخر",
+        lblTaskProgress: "نسبة الإنجاز",
+        sec3Title: "ثالثاً: التحديات",
+        lblHasChallenges: "هل واجهت تحديات أثناء إنجاز العمل؟",
+        lblChNo: "لا",
+        lblChYes: "نعم",
+        lblChDetails: "طبيعة التحديات المرصودة:",
+        lblSupportDetails: "الدعم أو التسهيلات المطلوبة:",
+        btnSubmit: "إرسال العمل للاعتماد",
+        btnUpdateSubmit: "حفظ التعديلات وإعادة الإرسال للاعتماد",
+        dashTitle: "لوحة المؤشرات والقيادة",
+        dashSub: "متابعة بيانية تفاعلية لحالات الإنجاز ومسارات اعتماد العمل عن بُعد",
         badgeLiveAnalytics: "بيانات تحليلية حية",
-        chart1Title: "معدل المهام المنجزة مقارنة بالمستهدف",
+        chart1Title: "معدل الأعمال المنجزة مقارنة بالمستهدف",
         chart2Title: "توزيع حالات مسار الاعتماد",
-        reportHeader: "مسار اعتماد المهمة الحالية",
-        thColTask: "المهمة",
+        reportHeader: "مسار اعتماد الأعمال الحالية",
+        thColTask: "موضوع العمل",
+        thColCat: "وصف العمل",
+        thColEmp: "الموظف",
+        thColEmpId: "الرقم الوظيفي",
+        thColDept: "الدائرة / الإدارة",
         thColDate: "التاريخ",
         thColPriority: "الأولوية",
         thColProgress: "الإنجاز",
-        thColObs: "المعوقات",
-        thColStatus: "حالة مسار الاعتماد",
-        thColAction: "عرض المسار",
-        approvalsTitle: "صندوق الاعتمادات واتخاذ القرار",
+        thColChallenges: "التحديات",
+        thColStatus: "مسار الاعتماد",
+        thColAction: "الإجراءات",
+        approvalsTitleEmp: "صندوق الأعمال المعادة بانتظار التعديل",
+        approvalsTitleLead: "صندوق الأعمال والقرارات",
         adminSecTitle: "سياسات الإدخال وقيد التواريخ (مدير النظام)",
         adminSecHint: "عند التعطيل، يُسمح للموظف استثنائياً بإدخال مهام لتواريخ سابقة أو قادمة.",
         dateLockOn: "قيد إدخال (تاريخ اليوم فقط) مُفعّل",
         dateLockOff: "تم إلغاء القيد (يسمح بإدخال فترات سابقة)",
         stepEmployee: "الموظف",
         stepSent: "تم الإرسال",
+        stepReturnedToEmp: "معادة للموظف للتعديل",
         stepDeptHead: "اعتماد رئيس القسم",
         stepDir: "اعتماد مدير الدائرة",
-        stepHR: "اعتماد HR",
+        stepHR: "اعتماد HR وقيد الدوام",
         stepHRPending: "قيد الحضور والانصراف",
         stepCurrentWait: "يقف عنده المسار",
         stepApproved: "معتمد",
-        stepFinalApproved: "مقيد ومعتمد نهائياً",
+        stepFinalApproved: "معتمد ومقيد رسمياً",
+        badgeReturned: "معادة للتعديل",
         badgePendingDept: "معلق عند: رئيس القسم",
         badgePendingDir: "معلق عند: مدير الدائرة",
         badgePendingHR: "معلق عند: الموارد البشرية (HR)",
         badgeApprovedAll: "معتمد ومقيد رسمياً (HR)",
         noObs: "لا يوجد",
-        yesObs: "نعم"
+        yesObs: "نعم",
+        lblFilterDept: "القسم / الدائرة:",
+        allDeptsOpt: "جميع الدوائر والإدارات",
+        lblFilterEmpId: "الرقم الوظيفي:",
+        lblFilterEmpName: "اسم الموظف:",
+        empIdPlaceholder: "الرقم الوظيفي...",
+        empNamePlaceholder: "اسم الموظف...",
+        lblFilterScope: "نطاق التقرير:",
+        optScopeAll: "الكل (بدون تحديد)",
+        optScopeDay: "يوم محدد",
+        optScopeMonth: "شهر محدد",
+        optScopeYear: "سنة كاملة",
+        lblFilterDayDate: "حدد التاريخ:",
+        lblFilterMonthDate: "حدد الشهر والسنة:",
+        lblFilterYearDate: "حدد السنة:",
+        btnFilterSearch: "بحث",
+        btnFilterPrint: "طباعة",
+        lblFilterResultsText: "إجمالي نتائج التقرير:",
+        noFilterMatch: "لا توجد سجلات تطابق شروط البحث والفلترة المحددة"
       },
       en: {
-        pageTitle: "HEMA Portal | Remote Work Performance System",
-        sysTitle: "Remote Work Task System",
+        pageTitle: "HEMA Portal | Remote Work System",
+        countryTitle: "Sultanate of Oman",
+        sysTitle: "Remote Work System",
         sysSub: "HEMA Digital Transformation Portal",
-        visionTitle: "THE VISION OF CPA OMAN",
-        visionDesc: "The trusted voice of consumers for sustainable protection in a market governed by competition and sound governance",
-        loginPrompt: "Enter any username or employee ID to proceed (Free Trial)",
+        loginPrompt: "Enter username or employee ID and password",
         userInputPlaceholder: "Username or Employee ID",
         passInputPlaceholder: "Password",
         rememberMe: "Remember password",
         forgotPassword: "Forgot password?",
         signIn: "Sign In",
         roleLabel: "Role:",
-        empNumLabel: "ID:",
+        empNumLabel: "Employee ID:",
         defaultJobTitle: "Employee",
         navForm: "Remote Work Form",
         navDash: "KPI Dashboard",
         navReports: "Task Log & Workflow",
-        navApprovals: "Approvals Inbox",
+        navApprovalsEmp: "Returned Tasks Inbox",
+        navApprovalsLead: "Tasks Inbox",
         navAdmin: "System Admin Settings",
         navLogout: "Sign Out",
         sec1Title: "1. Employee Details (from AD)",
@@ -1047,15 +1391,17 @@
         lblEmpDept: "Department / Section",
         lblEmpManager: "Direct Manager",
         lblFormDate: "Date",
-        sec2Title: "2. Task Details (Dropdowns)",
-        lblTaskName: "Task Name",
-        taskTitlePlaceholder: "Enter completed task title...",
+        sec2Title: "2. Task Details",
+        lblTaskCat: "Task Description",
+        optSelectCat: "Select task description / action type...",
+        lblTaskDeptSelect: "Department / Directorate",
+        optSelectDept: "Select department...",
+        lblTaskName: "Task Subject",
+        taskTitlePlaceholder: "Enter task subject or title...",
         lblTaskPriority: "Priority",
         optHigh: "High",
         optMed: "Medium",
         optLow: "Low",
-        lblTaskDesc: "Task Description",
-        taskDescPlaceholder: "Explain deliverables and scope of work...",
         lblTaskStart: "Start Date",
         lblTaskEnd: "End Date",
         lblTaskStatus: "Task Status",
@@ -1065,55 +1411,139 @@
         optStPending: "Pending",
         optStDelayed: "Delayed",
         lblTaskProgress: "Progress (%)",
-        lblTaskOutputs: "Outputs & Attached Documents (if any)",
-        sec3Title: "3. Obstacles & Challenges",
-        lblHasObstacles: "Are there any obstacles?",
-        lblObsNo: "No",
-        lblObsYes: "Yes",
-        lblObsDetails: "If yes, please explain:",
-        lblSupportDetails: "Required Support:",
+        sec3Title: "3. Challenges",
+        lblHasChallenges: "Did you encounter any challenges?",
+        lblChNo: "No",
+        lblChYes: "Yes",
+        lblChDetails: "Nature of Challenges:",
+        lblSupportDetails: "Required Support & Facilitation:",
         btnSubmit: "Submit Task for Approval",
+        btnUpdateSubmit: "Save & Resubmit Task",
         dashTitle: "KPI Dashboard & Analytics",
-        dashSub: "Real-time visual insights on progress and task workflows across departments",
+        dashSub: "Interactive visual tracking of completion and approval workflows",
         badgeLiveAnalytics: "Live Analytics",
         chart1Title: "Completed Tasks vs Target",
         chart2Title: "Approval Workflow Distribution",
         reportHeader: "Current Task Approval Workflow",
-        thColTask: "Task",
+        thColTask: "Subject",
+        thColCat: "Category",
+        thColEmp: "Employee",
+        thColEmpId: "Emp. ID",
+        thColDept: "Department",
         thColDate: "Date",
         thColPriority: "Priority",
         thColProgress: "Progress",
-        thColObs: "Obstacles",
+        thColChallenges: "Challenges",
         thColStatus: "Workflow Status",
-        thColAction: "View Workflow",
-        approvalsTitle: "Approvals & Decision Inbox",
+        thColAction: "Actions",
+        approvalsTitleEmp: "Returned Tasks Awaiting Revision",
+        approvalsTitleLead: "Tasks & Decisions Inbox",
         adminSecTitle: "Date Restriction Policies (Admin)",
         adminSecHint: "When disabled, employees are exceptionally allowed to enter past or future dates.",
         dateLockOn: "Today-Only Date Lock Enabled",
         dateLockOff: "Date Lock Disabled (Past dates allowed)",
         stepEmployee: "Employee",
         stepSent: "Submitted",
+        stepReturnedToEmp: "Returned for Revision",
         stepDeptHead: "Dept. Head Approval",
         stepDir: "Director Approval",
-        stepHR: "HR Approval",
+        stepHR: "HR Attendance Verification",
         stepHRPending: "Attendance Log",
         stepCurrentWait: "Current Stage",
         stepApproved: "Approved",
         stepFinalApproved: "Fully Registered & Approved",
+        badgeReturned: "Returned for Revision",
         badgePendingDept: "Pending: Dept. Head",
         badgePendingDir: "Pending: Director",
         badgePendingHR: "Pending: HR Dept.",
         badgeApprovedAll: "Approved & Registered (HR)",
         noObs: "None",
-        yesObs: "Yes"
+        yesObs: "Yes",
+        lblFilterDept: "Department / Directorate:",
+        allDeptsOpt: "All Departments & Directorates",
+        lblFilterEmpId: "Employee ID:",
+        lblFilterEmpName: "Employee Name:",
+        empIdPlaceholder: "Employee ID...",
+        empNamePlaceholder: "Employee Name...",
+        lblFilterScope: "Report Scope:",
+        optScopeAll: "All (No restriction)",
+        optScopeDay: "Specific Day",
+        optScopeMonth: "Specific Month",
+        optScopeYear: "Entire Year",
+        lblFilterDayDate: "Select Date:",
+        lblFilterMonthDate: "Select Month & Year:",
+        lblFilterYearDate: "Select Year:",
+        btnFilterSearch: "Search",
+        btnFilterPrint: "Print",
+        lblFilterResultsText: "Total Report Results:",
+        noFilterMatch: "No records found matching the search criteria"
       }
     };
 
     $(document).ready(function() {
       initTodayDate();
+      populateFormDepartmentDropdown();
+      populateDepartmentFilterDropdown();
+      populateYearFilter();
       renderTasksTable();
       renderWorkflowStepper(selectedTaskId);
+
+      $('#filterEmpId, #filterEmpName').on('keypress', function(e) {
+        if (e.which === 13) {
+          applyReportsFilter();
+        }
+      });
     });
+
+    function populateFormDepartmentDropdown() {
+      const selectElem = document.getElementById('taskDepartment');
+      if (!selectElem) return;
+
+      const d = i18n[currentLang];
+      let html = `<option value="" selected disabled>${d.optSelectDept}</option>`;
+      officialDepartmentsList.forEach(dept => {
+        html += `<option value="${dept}">${dept}</option>`;
+      });
+      selectElem.innerHTML = html;
+
+      if (currentActiveUser && currentActiveUser.dept) {
+        $(selectElem).val(currentActiveUser.dept);
+      }
+    }
+
+    function populateDepartmentFilterDropdown() {
+      const d = i18n[currentLang];
+      let optionsHtml = `<option value="ALL">${d.allDeptsOpt}</option>`;
+      
+      officialDepartmentsList.forEach(dept => {
+        optionsHtml += `<option value="${dept}">${dept}</option>`;
+      });
+
+      $('#filterDeptSelect').html(optionsHtml);
+      $('#dashDeptFilterSelect').html(optionsHtml);
+    }
+
+    function onDeptFilterChange(selectedDept) {
+      applyReportsFilter();
+    }
+
+    function populateYearFilter() {
+      const yearSelect = document.getElementById('filterYearSelect');
+      if (!yearSelect) return;
+
+      yearSelect.innerHTML = '';
+      const currentYear = new Date().getFullYear();
+
+      for (let year = 2020; year <= 2075; year++) {
+        const opt = document.createElement('option');
+        opt.value = year;
+        opt.textContent = year;
+        if (year === currentYear) {
+          opt.selected = true;
+        }
+        yearSelect.appendChild(opt);
+      }
+    }
 
     function setLanguage(lang) {
       currentLang = lang;
@@ -1132,12 +1562,12 @@
       document.getElementById('btnEn').classList.toggle('active', !isRtl);
 
       document.title = d.pageTitle;
+      $('#headerCountryTitle').text(d.countryTitle);
       $('#headerSystemTitle').text(d.sysTitle);
       $('#headerSubTitle').text(d.sysSub);
       $('#lblHeaderRole').text(d.roleLabel);
-      $('#txtVisionTitle').text(d.visionTitle);
-      $('#txtVisionDesc').text(d.visionDesc);
       $('#txtLoginPrompt').text(d.loginPrompt);
+      $('#txtLoginMainTitle').text(isRtl ? 'نظام العمل عن بُعد' : 'Remote Work System');
       $('#loginUsername').attr('placeholder', d.userInputPlaceholder);
       $('#loginPassword').attr('placeholder', d.passInputPlaceholder);
       $('#txtRememberMe').text(d.rememberMe);
@@ -1147,7 +1577,6 @@
       $('#navItemForm').text(d.navForm);
       $('#navItemDash').text(d.navDash);
       $('#navItemReports').text(d.navReports);
-      $('#navItemApprovals').contents().first()[0].textContent = d.navApprovals + " ";
       $('#navItemAdmin').text(d.navAdmin);
       $('#navItemLogout').text(d.navLogout);
 
@@ -1158,14 +1587,15 @@
       $('#lblFormEmpManager').text(d.lblEmpManager);
       $('#lblFormDate').text(d.lblFormDate);
       $('#sec2Title').text(d.sec2Title);
+      $('#lblTaskCat').text(d.lblTaskCat);
+      $('#optSelectCat').text(d.optSelectCat);
+      $('#lblTaskDeptSelect').text(d.lblTaskDeptSelect);
       $('#lblTaskName').text(d.lblTaskName);
       $('#taskTitle').attr('placeholder', d.taskTitlePlaceholder);
       $('#lblTaskPriority').text(d.lblTaskPriority);
       $('#optHigh').text(d.optHigh);
       $('#optMed').text(d.optMed);
       $('#optLow').text(d.optLow);
-      $('#lblTaskDesc').text(d.lblTaskDesc);
-      $('#taskDescription').attr('placeholder', d.taskDescPlaceholder);
       $('#lblTaskStart').text(d.lblTaskStart);
       $('#lblTaskEnd').text(d.lblTaskEnd);
       $('#lblTaskStatus').text(d.lblTaskStatus);
@@ -1175,14 +1605,15 @@
       $('#optStPending').text(d.optStPending);
       $('#optStDelayed').text(d.optStDelayed);
       $('#lblTaskProgress').text(d.lblTaskProgress);
-      $('#lblTaskOutputs').text(d.lblTaskOutputs);
       $('#sec3Title').text(d.sec3Title);
-      $('#lblHasObstacles').text(d.lblHasObstacles);
-      $('#lblObsNo').text(d.lblObsNo);
-      $('#lblObsYes').text(d.lblObsYes);
-      $('#lblObsDetails').text(d.lblObsDetails);
+      $('#lblHasChallenges').text(d.lblHasChallenges);
+      $('#lblChNo').text(d.lblChNo);
+      $('#lblChYes').text(d.lblChYes);
+      $('#lblChDetails').text(d.lblChDetails);
       $('#lblSupportDetails').text(d.lblSupportDetails);
-      $('#btnSubmitForm').html(`<i class="fas fa-paper-plane ${isRtl ? 'ms-2' : 'me-2'}"></i> ${d.btnSubmit}`);
+      
+      const submitText = editingTaskId ? d.btnUpdateSubmit : d.btnSubmit;
+      $('#btnSubmitForm').html(`<i class="fas fa-paper-plane ${isRtl ? 'ms-2' : 'me-2'}"></i> ${submitText}`);
 
       $('#dashRoleTitle').text(d.dashTitle);
       $('#dashRoleSub').text(d.dashSub);
@@ -1192,19 +1623,42 @@
 
       $('#reportHeaderTitle').text(d.reportHeader);
       $('#thColTask').text(d.thColTask);
+      $('#thColCat').text(d.thColCat);
+      $('#thColEmp').text(d.thColEmp);
+      $('#thColEmpId').text(d.thColEmpId);
+      $('#thColDept').text(d.thColDept);
       $('#thColDate').text(d.thColDate);
       $('#thColPriority').text(d.thColPriority);
       $('#thColProgress').text(d.thColProgress);
-      $('#thColObs').text(d.thColObs);
+      $('#thColChallenges').text(d.thColChallenges);
       $('#thColStatus').text(d.thColStatus);
       $('#thColAction').text(d.thColAction);
-      $('#approvalsSecTitle').text(d.approvalsTitle);
       $('#adminSecTitle').text(d.adminSecTitle);
       $('#adminSecHint').text(d.adminSecHint);
       $('#dateLockLabelText').text(isDateRestrictedToToday ? d.dateLockOn : d.dateLockOff);
 
+      $('#lblFilterDept').html(`<i class="fas fa-sitemap ${isRtl ? 'ms-1' : 'me-1'}"></i> ${d.lblFilterDept}`);
+      $('#lblFilterEmpId').html(`<i class="fas fa-id-badge ${isRtl ? 'ms-1' : 'me-1'}"></i> ${d.lblFilterEmpId}`);
+      $('#lblFilterEmpName').html(`<i class="fas fa-user ${isRtl ? 'ms-1' : 'me-1'}"></i> ${d.lblFilterEmpName}`);
+      $('#filterEmpId').attr('placeholder', d.empIdPlaceholder);
+      $('#filterEmpName').attr('placeholder', d.empNamePlaceholder);
+      $('#lblFilterScope').html(`<i class="fas fa-calendar-alt ${isRtl ? 'ms-1' : 'me-1'}"></i> ${d.lblFilterScope}`);
+      $('#optScopeAll').text(d.optScopeAll);
+      $('#optScopeDay').text(d.optScopeDay);
+      $('#optScopeMonth').text(d.optScopeMonth);
+      $('#optScopeYear').text(d.optScopeYear);
+      $('#lblFilterDayDate').text(d.lblFilterDayDate);
+      $('#lblFilterMonthDate').text(d.lblFilterMonthDate);
+      $('#lblFilterYearDate').text(d.lblFilterYearDate);
+      $('#btnFilterSearch').html(`<i class="fas fa-search ${isRtl ? 'ms-1' : 'me-1'}"></i> ${d.btnFilterSearch}`);
+      $('#btnFilterPrint').html(`<i class="fas fa-print ${isRtl ? 'ms-1' : 'me-1'}"></i> ${d.btnFilterPrint}`);
+      $('#lblFilterResultsText').text(d.lblFilterResultsText);
+
       applyUserProfile(currentActiveUser);
       applyDateRestrictions(isDateRestrictedToToday);
+      populateFormDepartmentDropdown();
+      populateDepartmentFilterDropdown();
+      populateYearFilter();
       renderTasksTable();
       renderWorkflowStepper(selectedTaskId);
       renderKPIs(currentActiveUser.role);
@@ -1219,7 +1673,14 @@
       const today = getTodayIsoString();
       $('#formSubmissionDate').val(today);
       $('#txtTodayBadge').text(today);
+      $('#filterExactDate').val(today);
+      $('#filterMonthDate').val(`${nowYearMonth()}`);
       applyDateRestrictions(isDateRestrictedToToday);
+    }
+
+    function nowYearMonth() {
+      const now = new Date();
+      return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
     }
 
     function applyDateRestrictions(restrict) {
@@ -1244,6 +1705,81 @@
       }
     }
 
+    function handleTimeScopeChange(scope) {
+      $('.filter-input-box').hide();
+      if (scope === 'DAY') {
+        $('#boxFilterDay').show();
+      } else if (scope === 'MONTH') {
+        $('#boxFilterMonth').show();
+      } else if (scope === 'YEAR') {
+        $('#boxFilterYear').show();
+      }
+    }
+
+    function applyReportsFilter() {
+      const selectedDept = $('#filterDeptSelect').val();
+      const filterEmpId = $('#filterEmpId').val() ? $('#filterEmpId').val().trim() : '';
+      const filterEmpName = $('#filterEmpName').val() ? $('#filterEmpName').val().trim().toLowerCase() : '';
+      const scope = $('#filterTimeScope').val();
+      const exactDate = $('#filterExactDate').val();
+      const monthDate = $('#filterMonthDate').val();
+      const yearDate = $('#filterYearSelect').val();
+
+      const filtered = tasksData.filter(task => {
+        let deptMatches = (selectedDept === 'ALL') || (task.dept === selectedDept);
+        let empIdMatches = !filterEmpId || (task.empId && task.empId.toString().includes(filterEmpId));
+        let empNameMatches = !filterEmpName || (task.empName && task.empName.toLowerCase().includes(filterEmpName));
+        let dateMatches = true;
+
+        if (scope === 'DAY' && exactDate) {
+          dateMatches = (task.date === exactDate);
+        } else if (scope === 'MONTH' && monthDate) {
+          dateMatches = task.date.startsWith(monthDate);
+        } else if (scope === 'YEAR' && yearDate) {
+          dateMatches = task.date.startsWith(yearDate);
+        }
+
+        return deptMatches && empIdMatches && empNameMatches && dateMatches;
+      });
+
+      renderTasksTable(filtered);
+      $('#filterSummaryBar').attr('style', 'display: flex !important;');
+      $('#filterResultCount').text(filtered.length);
+    }
+
+    function resetReportsFilter() {
+      $('#filterDeptSelect').val('ALL');
+      $('#filterEmpId').val('');
+      $('#filterEmpName').val('');
+      $('#filterTimeScope').val('ALL');
+      $('.filter-input-box').hide();
+      $('#filterSummaryBar').attr('style', 'display: none !important;');
+      renderTasksTable(tasksData);
+    }
+
+    function printFilteredReport() {
+      window.print();
+    }
+
+    function applyDashboardFilter() {
+      const selectedDept = $('#dashDeptFilterSelect').val();
+      const selectedCat = $('#dashCatFilterSelect').val();
+
+      let filtered = tasksData.filter(t => {
+        let deptOk = (selectedDept === 'ALL') || (t.dept === selectedDept);
+        let catOk = (selectedCat === 'ALL') || (t.category === selectedCat);
+        return deptOk && catOk;
+      });
+
+      renderKPIs(currentActiveUser.role, filtered);
+    }
+
+    function resetDashboardFilter() {
+      $('#dashDeptFilterSelect').val('ALL');
+      $('#dashCatFilterSelect').val('ALL');
+      renderKPIs(currentActiveUser.role, tasksData);
+    }
+
     function renderWorkflowStepper(taskId) {
       const task = tasksData.find(t => t.id === taskId) || tasksData[0];
       if (!task) return;
@@ -1259,7 +1795,12 @@
       let s3 = { state: '', icon: 'fa-user-tie', label: d.stepDir, desc: currentLang === 'ar' ? 'بانتظار الإحالة' : 'Awaiting Referral' };
       let s4 = { state: '', icon: 'fa-fingerprint', label: d.stepHR, desc: d.stepHRPending };
 
-      if (stage === 1) {
+      if (stage === 0) {
+        s1.state = 'revision-needed';
+        s1.icon = 'fa-rotate-left';
+        s1.label = d.stepEmployee;
+        s1.desc = `<span class="text-danger fw-bold">${d.stepReturnedToEmp}</span>`;
+      } else if (stage === 1) {
         s2.state = 'current';
         s2.desc = `<span class="text-warning fw-bold">${d.stepCurrentWait}</span>`;
       } else if (stage === 2) {
@@ -1301,37 +1842,78 @@
       $('#dynamicWorkflowStepper').html(stepperHtml);
     }
 
-    function renderTasksTable() {
+    function renderTasksTable(dataToRender = tasksData) {
       let rowsHtml = '';
       const d = i18n[currentLang];
+      const isAr = currentLang === 'ar';
 
-      tasksData.forEach(t => {
+      if (dataToRender.length === 0) {
+        $('#tasksTableBody').html(`
+          <tr>
+            <td colspan="11" class="text-center py-5 text-muted">
+              <i class="fas fa-search-minus fa-3x mb-3 d-block opacity-50"></i>
+              <h6>${d.noFilterMatch}</h6>
+            </td>
+          </tr>
+        `);
+        return;
+      }
+
+      dataToRender.forEach(t => {
         let badgeClass = 'badge-pending';
         let stageText = '';
 
-        if (t.stage === 1) stageText = d.badgePendingDept;
-        else if (t.stage === 2) stageText = d.badgePendingDir;
-        else if (t.stage === 3) stageText = d.badgePendingHR;
-        else {
+        if (t.stage === 0) {
+          stageText = d.badgeReturned;
+          badgeClass = 'badge-revision';
+        } else if (t.stage === 1) {
+          stageText = d.badgePendingDept;
+        } else if (t.stage === 2) {
+          stageText = d.badgePendingDir;
+        } else if (t.stage === 3) {
+          stageText = d.badgePendingHR;
+        } else {
           stageText = d.badgeApprovedAll;
           badgeClass = 'badge-completed';
         }
 
         const priorityLabel = t.priority === 'عالية' ? d.optHigh : (t.priority === 'متوسطة' ? d.optMed : d.optLow);
-        const obsLabel = t.hasObs === 'نعم' ? `<span class="text-danger fw-bold">${d.yesObs}</span>` : `<span class="text-success fw-bold">${d.noObs}</span>`;
+        const challengesLabel = t.hasChallenges === 'نعم' ? `<span class="text-danger fw-bold">${d.yesObs}</span>` : `<span class="text-success fw-bold">${d.noObs}</span>`;
+        const displayDept = t.dept || '---';
+        const displayCat = t.category || 'عام';
+        const displayEmpId = t.empId || '---';
+
+        let remarkHtml = '';
+        if (t.stage === 0 && t.lastRemark) {
+          remarkHtml = `<small class="d-block text-danger fw-bold mt-1"><i class="fas fa-comment-dots ms-1"></i> توجيه المسؤول: ${t.lastRemark}</small>`;
+        }
+
+        let editBtnHtml = '';
+        if (t.stage === 0 && (currentActiveUser.empId === t.empId || currentActiveUser.role === 'admin')) {
+          editBtnHtml = `
+            <button class="btn btn-sm btn-danger ms-1 fw-bold" title="${isAr ? 'تعديل المهمة وإعادة إرسالها' : 'Edit & Resubmit Task'}" onclick="editReturnedTask('${t.id}')">
+              <i class="fas fa-edit"></i>
+            </button>
+          `;
+        }
 
         rowsHtml += `
           <tr style="${t.id === selectedTaskId ? 'background-color: #f0f7ff;' : ''}">
-            <td class="fw-bold">${t.title}</td>
+            <td class="fw-bold">${t.title} ${remarkHtml}</td>
+            <td><span class="badge bg-secondary-subtle text-dark border px-2 py-1"><i class="fas fa-tag ${isAr ? 'ms-1' : 'me-1'} text-primary"></i> ${displayCat}</span></td>
+            <td class="text-muted"><i class="fas fa-user-circle ${isAr ? 'ms-1' : 'me-1'}"></i> ${t.empName}</td>
+            <td><span class="badge bg-secondary-subtle text-dark border">${displayEmpId}</span></td>
+            <td><span class="badge bg-light text-dark border"><i class="fas fa-sitemap ${isAr ? 'ms-1' : 'me-1'} text-secondary"></i> ${displayDept}</span></td>
             <td>${t.date}</td>
             <td><span class="badge ${t.priority === 'عالية' ? 'bg-danger' : (t.priority === 'متوسطة' ? 'bg-warning text-dark' : 'bg-secondary')}">${priorityLabel}</span></td>
             <td><span class="badge bg-success">${t.progress}</span></td>
-            <td>${obsLabel}</td>
+            <td>${challengesLabel}</td>
             <td><span class="status-badge ${badgeClass}">${stageText}</span></td>
             <td>
               <button class="btn btn-sm btn-outline-primary" title="${d.thColAction}" onclick="selectAndShowTask('${t.id}')">
                 <i class="fas fa-eye"></i>
               </button>
+              ${editBtnHtml}
             </td>
           </tr>
         `;
@@ -1349,8 +1931,61 @@
 
     function updateApprovalsInbox() {
       const role = currentActiveUser.role;
-      let targetStage = 0;
+      const d = i18n[currentLang];
+      const isAr = currentLang === 'ar';
 
+      if (role === 'employee') {
+        $('#approvalsSecTitle').text(d.approvalsTitleEmp);
+        $('#navItemApprovals').contents().first()[0].textContent = d.navApprovalsEmp + " ";
+
+        const returnedTasks = tasksData.filter(t => t.stage === 0 && (t.empId === currentActiveUser.empId || !t.empId));
+        $('#pendingCountBadge').text(returnedTasks.length);
+
+        if (returnedTasks.length === 0) {
+          $('#approvalsListContainer').html(`
+            <div class="text-center py-5 text-muted">
+              <i class="fas fa-circle-check fa-3x text-success mb-3 opacity-50"></i>
+              <h6>${isAr ? 'ممتاز! لا توجد أعمال معادة تتطلب تعديلك حالياً.' : 'Great! No returned tasks requiring your revision.'}</h6>
+            </div>
+          `);
+          return;
+        }
+
+        let cardsHtml = '';
+        returnedTasks.forEach(pt => {
+          cardsHtml += `
+            <div class="border border-danger rounded-3 p-3 bg-white mb-3 shadow-sm">
+              <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-2">
+                <div>
+                  <span class="badge bg-danger mb-1">${isAr ? 'عمل معاد للتعديل' : 'Returned for Revision'}</span>
+                  <h6 class="fw-bold text-navy m-0">${pt.title}</h6>
+                </div>
+                <button class="btn btn-danger btn-sm px-4 fw-bold shadow-sm" onclick="editReturnedTask('${pt.id}')">
+                  <i class="fas fa-edit me-1"></i> ${isAr ? 'تعديل العمل وإعادة إرساله' : 'Edit & Resubmit'}
+                </button>
+              </div>
+              <div class="p-2 mb-2 rounded bg-light border">
+                <strong class="text-danger small d-block mb-1"><i class="fas fa-comment-dots ms-1"></i> ${isAr ? 'توجيهات وملاحظات رئيس القسم:' : 'Supervisor Notes:'}</strong>
+                <div class="small fw-bold text-dark">${pt.lastRemark || (isAr ? 'يرجى مراجعة وتصحيح تفاصيل العمل.' : 'Please revise details.')}</div>
+              </div>
+              <div class="row g-2 small text-muted">
+                <div class="col-md-3"><strong>${isAr ? 'التاريخ:' : 'Date:'}</strong> ${pt.date}</div>
+                <div class="col-md-3"><strong>${isAr ? 'وصف العمل:' : 'Category:'}</strong> ${pt.category || 'عام'}</div>
+                <div class="col-md-3"><strong>${isAr ? 'الدائرة المعنية:' : 'Department:'}</strong> ${pt.dept || '---'}</div>
+                <div class="col-md-3"><strong>${isAr ? 'الأولوية:' : 'Priority:'}</strong> ${pt.priority}</div>
+              </div>
+            </div>
+          `;
+        });
+
+        $('#approvalsListContainer').html(cardsHtml);
+        return;
+      }
+
+      $('#approvalsSecTitle').text(d.approvalsTitleLead);
+      $('#navItemApprovals').contents().first()[0].textContent = d.navApprovalsLead + " ";
+
+      let targetStage = -1;
       if (role === 'dept_head') targetStage = 1;
       else if (role === 'dir') targetStage = 2;
       else if (role === 'hr') targetStage = 3;
@@ -1362,7 +1997,7 @@
         $('#approvalsListContainer').html(`
           <div class="text-center py-5 text-muted">
             <i class="fas fa-check-circle fa-3x text-success mb-3 opacity-50"></i>
-            <h6>${currentLang === 'ar' ? 'لا توجد مهام معلقة بانتظار قرارك حالياً.' : 'No pending tasks awaiting your decision.'}</h6>
+            <h6>${isAr ? 'لا توجد أعمال معلقة بانتظار قرارك حالياً.' : 'No pending tasks awaiting your decision.'}</h6>
           </div>
         `);
         return;
@@ -1370,31 +2005,32 @@
 
       let cardsHtml = '';
       pendingTasks.forEach(pt => {
-        let actionBtnText = currentLang === 'ar' ? 'اعتماد وإحالة لمدير الدائرة' : 'Approve & Refer to Director';
-        if (targetStage === 2) actionBtnText = currentLang === 'ar' ? 'اعتماد وإحالة للموارد البشرية (HR)' : 'Approve & Refer to HR';
-        if (targetStage === 3) actionBtnText = currentLang === 'ar' ? 'اعتماد نهائي وقيد بالحضور والانصراف' : 'Final Approval & Attendance Log';
+        let actionBtnText = isAr ? 'اعتماد وإحالة لمدير الدائرة' : 'Approve & Refer to Director';
+        if (targetStage === 2) actionBtnText = isAr ? 'اعتماد وإحالة للموارد البشرية (HR)' : 'Approve & Refer to HR';
+        if (targetStage === 3) actionBtnText = isAr ? 'اعتماد نهائي وقيد بالحضور والانصراف' : 'Final Approval & Attendance Log';
 
         cardsHtml += `
           <div class="border rounded-3 p-3 bg-light mb-3 shadow-sm">
             <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-2">
               <div>
                 <strong class="text-navy">${pt.title}</strong>
-                <span class="text-muted small ms-2">| ${currentLang === 'ar' ? 'صاحب المهمة' : 'Assigned to'}: ${pt.empName}</span>
+                <span class="badge bg-secondary-subtle text-dark border ms-1">${pt.category || 'عام'}</span>
+                <span class="text-muted small ms-2">| ${isAr ? 'صاحب العمل' : 'Assigned to'}: ${pt.empName} (${pt.dept || '---'})</span>
               </div>
-              <span class="badge bg-warning text-dark">${currentLang === 'ar' ? 'بانتظار قرارك' : 'Action Required'}</span>
+              <span class="badge bg-warning text-dark">${isAr ? 'بانتظار قرارك' : 'Action Required'}</span>
             </div>
             <div class="row g-2 mb-3 small text-muted">
-              <div class="col-md-3"><strong>${currentLang === 'ar' ? 'التاريخ:' : 'Date:'}</strong> ${pt.date}</div>
-              <div class="col-md-3"><strong>${currentLang === 'ar' ? 'نسبة الإنجاز:' : 'Progress:'}</strong> ${pt.progress}</div>
-              <div class="col-md-3"><strong>${currentLang === 'ar' ? 'الأولوية:' : 'Priority:'}</strong> ${pt.priority}</div>
-              <div class="col-md-3"><strong>${currentLang === 'ar' ? 'المعوقات:' : 'Obstacles:'}</strong> ${pt.hasObs}</div>
+              <div class="col-md-3"><strong>${isAr ? 'التاريخ:' : 'Date:'}</strong> ${pt.date}</div>
+              <div class="col-md-3"><strong>${isAr ? 'نسبة الإنجاز:' : 'Progress:'}</strong> ${pt.progress}</div>
+              <div class="col-md-3"><strong>${isAr ? 'الأولوية:' : 'Priority:'}</strong> ${pt.priority}</div>
+              <div class="col-md-3"><strong>${isAr ? 'التحديات:' : 'Challenges:'}</strong> ${pt.hasChallenges}</div>
             </div>
             <div class="mb-3">
-              <label class="form-label small fw-bold">${currentLang === 'ar' ? 'ملاحظات الاعتماد والتوجيهات:' : 'Approval Notes & Feedback:'}</label>
-              <input type="text" class="form-control form-control-sm" id="remark_${pt.id}" placeholder="${currentLang === 'ar' ? 'أدخل الملاحظات إن وجدت...' : 'Enter feedback if any...'}">
+              <label class="form-label small fw-bold">${isAr ? 'ملاحظات الاعتماد والتوجيهات (مطلوبة عند الإعادة للتعديل):' : 'Notes & Directives (Required if returning for revision):'}</label>
+              <input type="text" class="form-control form-control-sm" id="remark_${pt.id}" placeholder="${isAr ? 'أدخل ملاحظاتك أو سبب الإرجاع للموظف...' : 'Enter your remarks or reason for return...'}">
             </div>
             <div class="d-flex justify-content-end gap-2">
-              <button class="btn btn-outline-danger btn-sm px-3" onclick="processTaskAction('${pt.id}', false)"><i class="fas fa-times me-1"></i> ${currentLang === 'ar' ? 'إعادة للتعديل' : 'Return for Revision'}</button>
+              <button class="btn btn-outline-danger btn-sm px-3 fw-bold" onclick="processTaskAction('${pt.id}', false)"><i class="fas fa-rotate-left me-1"></i> ${isAr ? 'إعادة للتعديل' : 'Return for Revision'}</button>
               <button class="btn btn-success btn-sm px-4 fw-bold" onclick="processTaskAction('${pt.id}', true)"><i class="fas fa-check me-1"></i> ${actionBtnText}</button>
             </div>
           </div>
@@ -1409,23 +2045,40 @@
       if (taskIndex === -1) return;
 
       const isAr = currentLang === 'ar';
+      const remarkInput = $(`#remark_${taskId}`).val().trim();
 
       if (isApproved) {
         tasksData[taskIndex].stage += 1;
+        if (remarkInput) tasksData[taskIndex].lastRemark = remarkInput;
+
         Swal.fire({
           icon: 'success',
           title: isAr ? 'تم الاعتماد بنجاح' : 'Approved Successfully',
-          text: isAr ? 'تمت إحالة المهمة وتحديث مسار التتبع فورياً.' : 'Task referred and workflow updated immediately.',
+          text: isAr ? 'تمت إحالة العمل للمرحلة التالية وتحديث مسار التتبع.' : 'Task referred to the next stage.',
           confirmButtonColor: '#1b2d4b'
         });
       } else {
-        tasksData[taskIndex].stage = Math.max(1, tasksData[taskIndex].stage - 1);
-        Swal.fire({
-          icon: 'warning',
-          title: isAr ? 'تمت إعادة المهمة' : 'Task Returned',
-          text: isAr ? 'تمت إعادة المهمة للمرحلة السابقة مع إرفاق الملاحظات.' : 'Task returned to previous stage with notes.',
-          confirmButtonColor: '#1b2d4b'
-        });
+        const previousStage = tasksData[taskIndex].stage - 1;
+        tasksData[taskIndex].stage = Math.max(0, previousStage);
+        
+        const returnDirective = remarkInput || (isAr ? 'يرجى مراجعة وتعديل بيانات ومخرجات العمل وإعادة إرسالها.' : 'Please revise task details and resubmit.');
+        tasksData[taskIndex].lastRemark = returnDirective;
+
+        if (tasksData[taskIndex].stage === 0) {
+          Swal.fire({
+            icon: 'warning',
+            title: isAr ? 'تمت إعادة العمل للموظف' : 'Task Returned to Employee',
+            text: isAr ? `تم إرجاع العمل للموظف بنجاح للتعديل بناءً على توجيهكم: "${returnDirective}"` : `Task returned to employee with note: "${returnDirective}"`,
+            confirmButtonColor: '#1b2d4b'
+          });
+        } else {
+          Swal.fire({
+            icon: 'info',
+            title: isAr ? 'تمت إعادة العمل للمرحلة السابقة' : 'Task Returned to Previous Stage',
+            text: isAr ? `تمت إعادة العمل مع الملاحظات: "${returnDirective}"` : 'Task returned with notes.',
+            confirmButtonColor: '#1b2d4b'
+          });
+        }
       }
 
       renderTasksTable();
@@ -1434,13 +2087,66 @@
       renderKPIs(currentActiveUser.role);
     }
 
+    function editReturnedTask(taskId) {
+      const task = tasksData.find(t => t.id === taskId);
+      if (!task) return;
+
+      editingTaskId = taskId;
+
+      $('#taskCategory').val(task.category || '');
+      $('#taskDepartment').val(task.dept || '');
+      $('#taskTitle').val(task.title);
+      $('#taskPriority').val(task.priority);
+      $('#taskProgress').val(task.progress);
+      $('#taskStartDate').val(task.date);
+      $('#taskEndDate').val(task.date);
+      $('#formSubmissionDate').val(task.date);
+
+      if (task.hasChallenges === 'نعم') {
+        $('#chYes').prop('checked', true);
+        toggleChallengesField(true);
+        $('#challengeExplanation').val(task.challengeDesc || '');
+        $('#requiredSupport').val(task.supportDesc || '');
+      } else {
+        $('#chNo').prop('checked', true);
+        toggleChallengesField(false);
+      }
+
+      $('#editingModeAlert').show();
+      $('#editingTaskTitleText').text(`${task.title} (${task.id})`);
+      $('#editingTaskRemarkText').text(task.lastRemark || 'يرجى مراجعة المطلوب وتصحيحه');
+
+      const d = i18n[currentLang];
+      $('#btnSubmitForm').html(`<i class="fas fa-save me-2"></i> ${d.btnUpdateSubmit}`);
+
+      switchMainView('formView');
+
+      Swal.fire({
+        icon: 'info',
+        title: currentLang === 'ar' ? 'توجيهات إعادة التعديل' : 'Revision Directives',
+        text: task.lastRemark || (currentLang === 'ar' ? 'يرجى تصحيح المطلوب وإعادة الإرسال.' : 'Please fix the requirements and resubmit.'),
+        confirmButtonColor: '#1b2d4b'
+      });
+    }
+
+    function cancelEditingMode() {
+      editingTaskId = null;
+      $('#editingModeAlert').hide();
+      $('#remoteWorkForm')[0].reset();
+      initTodayDate();
+      populateFormDepartmentDropdown();
+      toggleChallengesField(false);
+      const d = i18n[currentLang];
+      $('#btnSubmitForm').html(`<i class="fas fa-paper-plane me-2"></i> ${d.btnSubmit}`);
+    }
+
     function handleLogin() {
       const userKey = $('#loginUsername').val().trim();
-      const user = employeesDB[userKey] || {
+      const user = employeesDB[userKey] || { 
         name: isNaN(userKey) ? userKey : `الموظف (${userKey})`,
         nameEn: isNaN(userKey) ? userKey : `Employee (${userKey})`,
         empId: userKey,
-        dept: "إدارة حماية المستهلك بمحافظة الظاهرة",
+        dept: "ادارة حماية المستهلك محافظة الظاهرة بعبري",
         deptEn: "Consumer Protection Dept - Ad Dhahirah",
         manager: "المدير المباشر",
         managerEn: "Direct Manager",
@@ -1487,8 +2193,26 @@
       $('#formEmpDept').val(displayDept);
       $('#formEmpManager').val(displayManager);
 
+      if (user.dept && $('#taskDepartment option[value="' + user.dept + '"]').length > 0) {
+        $('#taskDepartment').val(user.dept);
+      }
+
       renderKPIs(user.role);
       updateApprovalsInbox();
+
+      if (user.role === 'employee') {
+        const returnedCount = tasksData.filter(t => t.stage === 0 && (t.empId === user.empId || !t.empId)).length;
+        if (returnedCount > 0) {
+          Swal.fire({
+            toast: true,
+            position: 'top-end',
+            icon: 'warning',
+            title: currentLang === 'ar' ? `تنبيه: لديك (${returnedCount}) عمل معاد للتعديل!` : `Alert: You have (${returnedCount}) returned tasks!`,
+            showConfirmButton: false,
+            timer: 3200
+          });
+        }
+      }
     }
 
     function changeActiveRole(roleKey) {
@@ -1506,40 +2230,41 @@
       });
     }
 
-    function renderKPIs(role) {
+    function renderKPIs(role, dataSource = tasksData) {
       let cards = '';
       const isAr = currentLang === 'ar';
 
       if (role === 'employee') {
         cards = `
-          <div class="kpi-card"><div class="kpi-icon bg-primary text-white"><i class="fas fa-list"></i></div><div><div class="text-muted small">${isAr ? 'المهام المسجلة' : 'Logged Tasks'}</div><div class="fs-4 fw-bold">${tasksData.length}</div></div></div>
-          <div class="kpi-card"><div class="kpi-icon bg-success text-white"><i class="fas fa-check-double"></i></div><div><div class="text-muted small">${isAr ? 'معتمدة بالـ HR' : 'HR Approved'}</div><div class="fs-4 fw-bold">${tasksData.filter(t=>t.stage>=4).length}</div></div></div>
-          <div class="kpi-card"><div class="kpi-icon bg-warning text-dark"><i class="fas fa-hourglass-start"></i></div><div><div class="text-muted small">${isAr ? 'قيد الاعتماد بالمسار' : 'In Workflow'}</div><div class="fs-4 fw-bold">${tasksData.filter(t=>t.stage<4).length}</div></div></div>
+          <div class="kpi-card"><div class="kpi-icon bg-primary text-white"><i class="fas fa-list"></i></div><div><div class="text-muted small">${isAr ? 'الأعمال المسجلة' : 'Logged Tasks'}</div><div class="fs-4 fw-bold">${dataSource.length}</div></div></div>
+          <div class="kpi-card"><div class="kpi-icon bg-success text-white"><i class="fas fa-check-double"></i></div><div><div class="text-muted small">${isAr ? 'معتمدة بالـ HR' : 'HR Approved'}</div><div class="fs-4 fw-bold">${dataSource.filter(t=>t.stage>=4).length}</div></div></div>
+          <div class="kpi-card"><div class="kpi-icon bg-warning text-dark"><i class="fas fa-hourglass-start"></i></div><div><div class="text-muted small">${isAr ? 'قيد الاعتماد بالمسار' : 'In Workflow'}</div><div class="fs-4 fw-bold">${dataSource.filter(t=>t.stage>0 && t.stage<4).length}</div></div></div>
+          <div class="kpi-card"><div class="kpi-icon bg-danger text-white"><i class="fas fa-rotate-left"></i></div><div><div class="text-muted small">${isAr ? 'معادة للتعديل' : 'Needs Revision'}</div><div class="fs-4 fw-bold">${dataSource.filter(t=>t.stage===0).length}</div></div></div>
         `;
       } else if (role === 'dept_head' || role === 'dir') {
         cards = `
           <div class="kpi-card"><div class="kpi-icon bg-primary text-white"><i class="fas fa-users"></i></div><div><div class="text-muted small">${isAr ? 'موظفي العمل عن بُعد' : 'Remote Employees'}</div><div class="fs-4 fw-bold">18</div></div></div>
-          <div class="kpi-card"><div class="kpi-icon bg-warning text-dark"><i class="fas fa-clock"></i></div><div><div class="text-muted small">${isAr ? 'معلقة لديك للاعتماد' : 'Pending Your Action'}</div><div class="fs-4 fw-bold text-danger">${tasksData.filter(t=>t.stage===(role==='dept_head'?1:2)).length}</div></div></div>
+          <div class="kpi-card"><div class="kpi-icon bg-warning text-dark"><i class="fas fa-clock"></i></div><div><div class="text-muted small">${isAr ? 'معلقة لديك للاعتماد' : 'Pending Your Action'}</div><div class="fs-4 fw-bold text-danger">${dataSource.filter(t=>t.stage===(role==='dept_head'?1:2)).length}</div></div></div>
           <div class="kpi-card"><div class="kpi-icon bg-success text-white"><i class="fas fa-thumbs-up"></i></div><div><div class="text-muted small">${isAr ? 'تم اعتمادها وإحالتها' : 'Approved & Referred'}</div><div class="fs-4 fw-bold">14</div></div></div>
         `;
       } else if (role === 'hr') {
         cards = `
           <div class="kpi-card"><div class="kpi-icon bg-primary text-white"><i class="fas fa-fingerprint"></i></div><div><div class="text-muted small">${isAr ? 'المسجلين عن بُعد اليوم' : 'Logged Today'}</div><div class="fs-4 fw-bold">84</div></div></div>
-          <div class="kpi-card"><div class="kpi-icon bg-warning text-dark"><i class="fas fa-hourglass-half"></i></div><div><div class="text-muted small">${isAr ? 'بانتظار قيد الـ HR' : 'Pending HR Log'}</div><div class="fs-4 fw-bold text-danger">${tasksData.filter(t=>t.stage===3).length}</div></div></div>
-          <div class="kpi-card"><div class="kpi-icon bg-success text-white"><i class="fas fa-user-check"></i></div><div><div class="text-muted small">${isAr ? 'المعتمدين رسمياً' : 'Officially Approved'}</div><div class="fs-4 fw-bold">${tasksData.filter(t=>t.stage>=4).length}</div></div></div>
+          <div class="kpi-card"><div class="kpi-icon bg-warning text-dark"><i class="fas fa-hourglass-half"></i></div><div><div class="text-muted small">${isAr ? 'بانتظار قيد الـ HR' : 'Pending HR Log'}</div><div class="fs-4 fw-bold text-danger">${dataSource.filter(t=>t.stage===3).length}</div></div></div>
+          <div class="kpi-card"><div class="kpi-icon bg-success text-white"><i class="fas fa-user-check"></i></div><div><div class="text-muted small">${isAr ? 'المعتمدين رسمياً' : 'Officially Approved'}</div><div class="fs-4 fw-bold">${dataSource.filter(t=>t.stage>=4).length}</div></div></div>
         `;
       } else {
         cards = `
           <div class="kpi-card"><div class="kpi-icon bg-dark text-warning"><i class="fas fa-building"></i></div><div><div class="text-muted small">${isAr ? 'إجمالي كادر العمل عن بُعد' : 'Total Remote Staff'}</div><div class="fs-4 fw-bold">142</div></div></div>
           <div class="kpi-card"><div class="kpi-icon bg-success text-white"><i class="fas fa-check-circle"></i></div><div><div class="text-muted small">${isAr ? 'مؤشر الإنجاز الكلي' : 'Overall Performance'}</div><div class="fs-4 fw-bold">95.2%</div></div></div>
-          <div class="kpi-card"><div class="kpi-icon bg-primary text-white"><i class="fas fa-folder-open"></i></div><div><div class="text-muted small">${isAr ? 'التقارير المرفوعة' : 'Submitted Reports'}</div><div class="fs-4 fw-bold">412</div></div></div>
+          <div class="kpi-card"><div class="kpi-icon bg-primary text-white"><i class="fas fa-folder-open"></i></div><div><div class="text-muted small">${isAr ? 'التقارير المرفوعة' : 'Submitted Reports'}</div><div class="fs-4 fw-bold">${dataSource.length}</div></div></div>
         `;
       }
       $('#kpiContainer').html(cards);
-      initCharts(role);
+      initCharts(role, dataSource);
     }
 
-    function initCharts(role) {
+    function initCharts(role, dataSource = tasksData) {
       const barCtx = document.getElementById('performanceBarChart');
       const doughnutCtx = document.getElementById('statusDoughnutChart');
       if (!barCtx || !doughnutCtx) return;
@@ -1550,17 +2275,11 @@
       const isAr = currentLang === 'ar';
 
       let barLabels = isAr
-        ? ['قسم الدراسات والتطوير', 'مراقبة وتنظيم الأسواق', 'الشكاوى وحماية المستهلك', 'تقنية المعلومات']
-        : ['Studies & Dev Dept', 'Market Regulation', 'Consumer Complaints', 'Information Technology'];
+        ? ['دائرة الدراسات وبحوث السوق', 'دائرة تنظيم ومراقبة الأسواق', 'دائرة الشكاوي', 'دائرة تقنية المعلومات']
+        : ['Market Studies Dept', 'Market Regulation Dept', 'Complaints Dept', 'IT Department'];
 
       let barTargetData = [10, 15, 12, 8];
       let barActualData = [9, 14, 10, 8];
-
-      if (role === 'employee') {
-        barLabels = isAr ? ['الأسبوع 1', 'الأسبوع 2', 'الأسبوع 3', 'الأسبوع 4'] : ['Week 1', 'Week 2', 'Week 3', 'Week 4'];
-        barTargetData = [5, 5, 5, 5];
-        barActualData = [5, 4, 5, 4];
-      }
 
       barChartInstance = new Chart(barCtx, {
         type: 'bar',
@@ -1568,7 +2287,7 @@
           labels: barLabels,
           datasets: [
             {
-              label: isAr ? 'المستهدف من المهام' : 'Target Tasks',
+              label: isAr ? 'المستهدف من الأعمال' : 'Target Tasks',
               data: barTargetData,
               backgroundColor: 'rgba(30, 49, 83, 0.25)',
               borderColor: '#1b2d4b',
@@ -1596,21 +2315,22 @@
         }
       });
 
-      const pendingDept = tasksData.filter(t => t.stage === 1).length;
-      const pendingDir = tasksData.filter(t => t.stage === 2).length;
-      const pendingHR = tasksData.filter(t => t.stage === 3).length;
-      const completed = tasksData.filter(t => t.stage >= 4).length;
+      const returnedCount = dataSource.filter(t => t.stage === 0).length;
+      const pendingDept = dataSource.filter(t => t.stage === 1).length;
+      const pendingDir = dataSource.filter(t => t.stage === 2).length;
+      const pendingHR = dataSource.filter(t => t.stage === 3).length;
+      const completed = dataSource.filter(t => t.stage >= 4).length;
 
       const doughnutLabels = isAr
-        ? ['معتمد ومقيد نهائياً', 'معلق: رئيس القسم', 'معلق: مدير الدائرة', 'معلق: الموارد البشرية']
-        : ['Fully Approved', 'Pending: Dept Head', 'Pending: Director', 'Pending: HR'];
+        ? ['معتمد ومقيد نهائياً', 'معلق: رئيس القسم', 'معلق: مدير الدائرة', 'معلق: الموارد البشرية', 'معادة للتعديل']
+        : ['Fully Approved', 'Pending: Dept Head', 'Pending: Director', 'Pending: HR', 'Needs Revision'];
 
       doughnutChartInstance = new Chart(doughnutCtx, {
         type: 'doughnut',
         data: {
           labels: doughnutLabels,
           datasets: [{
-            data: [completed || 1, pendingDept || 1, pendingDir || 1, pendingHR || 1],
+            data: [completed || 1, pendingDept || 1, pendingDir || 1, pendingHR || 1, returnedCount || 0],
             backgroundColor: ['#10b981', '#f59e0b', '#3b82f6', '#ef4444'],
             borderWidth: 2,
             hoverOffset: 6
@@ -1627,14 +2347,13 @@
       });
     }
 
-    function toggleObstaclesField(show) {
-      $('#obstacleDetailsContainer').toggle(show);
-      $('#obstacleExplanation').prop('required', show);
+    function toggleChallengesField(show) {
+      $('#challengesDetailsContainer').toggle(show);
+      $('#challengeExplanation').prop('required', show);
     }
 
     function switchMainView(viewId) {
-      $('.view-panel').hide();
-      $('#' + viewId).show();
+      $('.view-panel').hide();$('#' + viewId).show();
       $('.nav-btn').removeClass('active');
       if (viewId === 'formView') $('#btnNavForm').addClass('active');
       if (viewId === 'dashView') {
@@ -1650,39 +2369,89 @@
     }
 
     function submitWorkLog() {
+      const taskCategory = $('#taskCategory').val();
+      const taskDepartment = $('#taskDepartment').val() || currentActiveUser.dept;
       const taskTitle = $('#taskTitle').val();
       const taskPriority = $('#taskPriority').val();
       const taskProgress = $('#taskProgress').val();
-      const hasObs = $('input[name="hasObstacles"]:checked').val();
+      const hasChallenges = $('input[name="hasChallenges"]:checked').val();
+      const challengeDesc = hasChallenges === 'نعم' ? $('#challengeExplanation').val() : '';
+      const supportDesc = hasChallenges === 'نعم' ? $('#requiredSupport').val() : '';
       const today = $('#formSubmissionDate').val();
 
-      const newId = `TASK-${Math.floor(100 + Math.random() * 900)}`;
-      const newTask = {
-        id: newId,
-        title: taskTitle,
-        empName: currentActiveUser.name,
-        date: today,
-        priority: taskPriority,
-        progress: taskProgress,
-        hasObs: hasObs,
-        stage: 1
-      };
+      if (!taskDepartment) {
+        Swal.fire({
+          icon: 'warning',
+          title: currentLang === 'ar' ? 'تنبيه' : 'Warning',
+          text: currentLang === 'ar' ? 'يرجى اختيار الدائرة أو الإدارة المعنية بالعمل.' : 'Please select a department.',
+          confirmButtonColor: '#1b2d4b'
+        });
+        return;
+      }
 
-      tasksData.unshift(newTask);
-      selectedTaskId = newId;
+      if (editingTaskId) {
+        const taskIdx = tasksData.findIndex(t => t.id === editingTaskId);
+        if (taskIdx !== -1) {
+          tasksData[taskIdx].title = taskTitle;
+          tasksData[taskIdx].category = taskCategory;
+          tasksData[taskIdx].dept = taskDepartment;
+          tasksData[taskIdx].priority = taskPriority;
+          tasksData[taskIdx].progress = taskProgress;
+          tasksData[taskIdx].hasChallenges = hasChallenges;
+          tasksData[taskIdx].challengeDesc = challengeDesc;
+          tasksData[taskIdx].supportDesc = supportDesc;
+          tasksData[taskIdx].stage = 1;
+          tasksData[taskIdx].lastRemark = currentLang === 'ar' ? 'تم تعديل العمل وإعادة إرساله للاعتماد' : 'Task updated and resubmitted';
+        }
 
-      Swal.fire({
-        icon: 'success',
-        title: currentLang === 'ar' ? 'تم إرسال المهمة بنجاح' : 'Task Submitted Successfully',
-        text: currentLang === 'ar' ? 'تم إحالة المهمة إلى رئيس القسم عبر مسار الاعتماد الإداري.' : 'Task has been referred to Department Head via workflow.',
-        confirmButtonColor: '#1b2d4b'
-      });
+        selectedTaskId = editingTaskId;
+        editingTaskId = null;
+        $('#editingModeAlert').hide();
+
+        Swal.fire({
+          icon: 'success',
+          title: currentLang === 'ar' ? 'تم تحديث العمل وإعادة إرساله' : 'Task Updated & Resubmitted',
+          text: currentLang === 'ar' ? 'تمت إحالة العمل المعدل إلى رئيس القسم للاعتماد مجدداً.' : 'Task referred back to Dept. Head for review.',
+          confirmButtonColor: '#1b2d4b'
+        });
+
+      } else {
+        const newId = `TASK-${Math.floor(100 + Math.random() * 900)}`;
+        const newTask = {
+          id: newId,
+          title: taskTitle,
+          category: taskCategory,
+          dept: taskDepartment,
+          deptEn: taskDepartment,
+          empName: currentActiveUser.name,
+          empId: currentActiveUser.empId,
+          date: today,
+          priority: taskPriority,
+          progress: taskProgress,
+          hasChallenges: hasChallenges,
+          challengeDesc: challengeDesc,
+          supportDesc: supportDesc,
+          stage: 1,
+          lastRemark: ""
+        };
+
+        tasksData.unshift(newTask);
+        selectedTaskId = newId;
+
+        Swal.fire({
+          icon: 'success',
+          title: currentLang === 'ar' ? 'تم إرسال العمل بنجاح' : 'Task Submitted Successfully',
+          text: currentLang === 'ar' ? 'تمت إحالة العمل إلى رئيس القسم عبر مسار الاعتماد الإداري.' : 'Task referred to Department Head via workflow.',
+          confirmButtonColor: '#1b2d4b'
+        });
+      }
 
       $('#remoteWorkForm')[0].reset();
       initTodayDate();
-      toggleObstaclesField(false);
+      populateFormDepartmentDropdown();
+      toggleChallengesField(false);
       renderTasksTable();
-      renderWorkflowStepper(newId);
+      renderWorkflowStepper(selectedTaskId);
       switchMainView('reportsView');
     }
 
